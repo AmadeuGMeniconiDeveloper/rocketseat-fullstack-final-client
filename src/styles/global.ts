@@ -9,5 +9,6 @@ export default createGlobalStyle`
 	
 	body {
 		background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_100};
+		color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
 	}
 `;

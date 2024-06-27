@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components/dist/types";
 
-const lightTheme: DefaultTheme = {
+const light: DefaultTheme = {
   MODE: "light",
   COLORS: {
     PRIMARY: "#FF6347",
@@ -73,4 +73,4 @@ const lightTheme: DefaultTheme = {
   },
 };
 
-export default lightTheme;
+export default light;

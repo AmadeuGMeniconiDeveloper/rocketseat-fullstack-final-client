@@ -1,19 +1,22 @@
 import { ThemeProvider, DefaultTheme } from "styled-components";
 
-import usePersistState from "./hooks/usePersistState";
+// import usePersistState from "./hooks/usePersistState";
 
 import GlobalStyle from "./styles/global";
-import ligthTheme from "./styles/themes/light";
-import darkTheme from "./styles/themes/dark";
+import * as MyThemes from "./styles/themes";
+import { useState } from "react";
 
 function App() {
-  const [theme, setTheme] = usePersistState<DefaultTheme>("theme", ligthTheme);
+  // const [theme, setTheme] = usePersistState<DefaultTheme>(
+  //   "theme",
+  //   ThemeStyle.dark
+  // );
+
+  const [theme, setTheme] = useState<DefaultTheme>(MyThemes.dark);
 
   const toogleTheme = () => {
-    setTheme(theme.MODE === "light" ? darkTheme : ligthTheme);
+    setTheme(theme.MODE === "light" ? MyThemes.dark : MyThemes.light);
   };
-
-  console.log(theme);
 
   return (
     <ThemeProvider theme={theme}>
