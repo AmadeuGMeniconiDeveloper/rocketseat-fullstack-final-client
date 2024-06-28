@@ -1,4 +1,5 @@
 import "styled-components";
+import commons from "./themes/commons";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -22,6 +23,19 @@ declare module "styled-components" {
         BG_500: string;
         BG_600: string;
         BG_700: string;
+        BG_800: string;
+        BG_900: string;
+      };
+      FOREGROUNG: {
+        FG_100: string;
+        FG_200: string;
+        FG_300: string;
+        FG_400: string;
+        FG_500: string;
+        FG_600: string;
+        FG_700: string;
+        FG_800: string;
+        FG_900: string;
       };
       TEXT: {
         TEXT_DEFAULT: string;
@@ -29,48 +43,6 @@ declare module "styled-components" {
         TEXT_CONTRAST: string;
       };
     };
-    TYPOOGRAPHY: {
-      FONT: {
-        POPPINS: {
-          SIZE: {
-            XS: string;
-            S: string;
-            M: string;
-            L: string;
-            XL: string;
-          };
-        };
-        ROBOTO: {
-          SIZE: {
-            XXS: string;
-            XS: string;
-            S: string;
-            M: string;
-            L: string;
-            XL: string;
-            XXL: string;
-          };
-        };
-      };
-      WEIGHT: {
-        THIN: string;
-        LIGHT: string;
-        REGULAR: string;
-        MEDIUM: string;
-        BOLD: string;
-        BLACK: string;
-      };
-      LINE_HEIGHT: {
-        AUTO: string;
-        S: string;
-        M: string;
-        L: string;
-      };
-    };
-    FILTERS: {
-      BRIGHTEN: string;
-      DARKEN: string;
-      DESATURATE: string;
-    };
+    COMMONS: typeof commons;
   }
 }

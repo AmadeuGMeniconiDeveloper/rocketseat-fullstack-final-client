@@ -1,26 +1,30 @@
+import { useState } from "react";
 import { ThemeProvider, DefaultTheme } from "styled-components";
 
-// import usePersistState from "./hooks/usePersistState";
+// import useLocalStoragePersistedState from "./hooks/useLocalStoragePersistedState";
+
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 import GlobalStyle from "./styles/global";
-import * as MyThemes from "./styles/themes";
-import { useState } from "react";
+import * as ThemeModes from "./styles/themes";
 
 function App() {
-  // const [theme, setTheme] = usePersistState<DefaultTheme>(
+  // const [theme, setTheme] = useLocalStoragePersistedState<DefaultTheme>(
   //   "theme",
-  //   ThemeStyle.dark
+  //   ThemeModes.dark
   // );
 
-  const [theme, setTheme] = useState<DefaultTheme>(MyThemes.dark);
+  const [theme, setTheme] = useState<DefaultTheme>(ThemeModes.dark);
 
   const toogleTheme = () => {
-    setTheme(theme.MODE === "light" ? MyThemes.dark : MyThemes.light);
+    setTheme(theme.MODE === "light" ? ThemeModes.dark : ThemeModes.light);
   };
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <SignIn />
     </ThemeProvider>
   );
 }

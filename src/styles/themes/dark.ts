@@ -1,12 +1,13 @@
 import { DefaultTheme } from "styled-components/dist/types";
+import commons from "./commons";
 
 const dark: DefaultTheme = {
   MODE: "dark",
   COLORS: {
-    PRIMARY: "#FF6347",
+    PRIMARY: "#85000f",
     SECONDARY: "#000000",
     TINTS: {
-      TOMATO: "#FF6347",
+      TOMATO: "#85000f",
       CARROT: "#fba94c",
       MINT: "#04d361",
       CAKE: "#82f3ff",
@@ -14,63 +15,34 @@ const dark: DefaultTheme = {
       GRAY: "#676767",
     },
     TEXT: {
-      TEXT_DEFAULT: "#ffffff",
+      TEXT_DEFAULT: "#FFFFFF",
       TEXT_SOFT: "#BBBBBB",
       TEXT_CONTRAST: "#020202",
     },
+    FOREGROUNG: {
+      FG_100: "#FFFFFF",
+      FG_200: "#fffbf1",
+      FG_300: "#e1e0e6",
+      FG_400: "#c5c3cc",
+      FG_500: "#7d7a8a",
+      FG_600: "#75797b",
+      FG_700: "#4a585e",
+      FG_800: "#4a585e",
+      FG_900: "#4a585e",
+    },
     BACKGROUND: {
-      BG_100: "#000a0f",
-      BG_200: "#061014",
-      BG_300: "#0c1418",
-      BG_400: "#10181c",
-      BG_500: "#141c20",
-      BG_600: "#171f24",
-      BG_700: "#1a2328",
+      BG_100: "#000405",
+      BG_200: "#00070a",
+      BG_300: "#000204",
+      BG_400: "#000a0f",
+      BG_500: "#000c12",
+      BG_600: "#001119",
+      BG_700: "#0a161b",
+      BG_800: "#061d25",
+      BG_900: "#162227",
     },
   },
-  TYPOOGRAPHY: {
-    FONT: {
-      POPPINS: {
-        SIZE: {
-          XS: "12px",
-          S: "14px",
-          M: "16px",
-          L: "18px",
-          XL: "20px",
-        },
-      },
-      ROBOTO: {
-        SIZE: {
-          XXS: "10px",
-          XS: "12px",
-          S: "14px",
-          M: "16px",
-          L: "18px",
-          XL: "20px",
-          XXL: "22px",
-        },
-      },
-    },
-    WEIGHT: {
-      THIN: "100",
-      LIGHT: "300",
-      REGULAR: "400",
-      MEDIUM: "500",
-      BOLD: "700",
-      BLACK: "900",
-    },
-    LINE_HEIGHT: {
-      AUTO: "auto",
-      S: "100%",
-      M: "140%",
-      L: "160%",
-    },
-  },
-  FILTERS: {
-    BRIGHTEN: "brightness(1.2)",
-    DARKEN: "brightness(0.8)",
-    DESATURATE: "saturate(0.5)",
-  },
+  COMMONS: commons,
 };
 
 export default dark;

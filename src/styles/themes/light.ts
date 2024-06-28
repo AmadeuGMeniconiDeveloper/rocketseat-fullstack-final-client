@@ -1,12 +1,13 @@
 import { DefaultTheme } from "styled-components/dist/types";
+import commons from "./commons";
 
 const light: DefaultTheme = {
   MODE: "light",
   COLORS: {
-    PRIMARY: "#FF6347",
+    PRIMARY: "#85000f",
     SECONDARY: "#000000",
     TINTS: {
-      TOMATO: "#FF6347",
+      TOMATO: "#85000f",
       CARROT: "#fba94c",
       MINT: "#04d361",
       CAKE: "#82f3ff",
@@ -18,59 +19,30 @@ const light: DefaultTheme = {
       TEXT_SOFT: "#212121",
       TEXT_CONTRAST: "#ffffff",
     },
+    FOREGROUNG: {
+      FG_100: "#000405",
+      FG_200: "#00070a",
+      FG_300: "#000204",
+      FG_400: "#000a0f",
+      FG_500: "#000c12",
+      FG_600: "#001119",
+      FG_700: "#0a161b",
+      FG_800: "#061d25",
+      FG_900: "#162227",
+    },
     BACKGROUND: {
       BG_100: "#FFFFFF",
-      BG_200: "#e3e0e2",
-      BG_300: "#c6c3c6",
-      BG_400: "#a8a6ac",
-      BG_500: "#8a8b92",
-      BG_600: "#6c7279",
-      BG_700: "#4d585e",
+      BG_200: "#fffbf1",
+      BG_300: "#e1e0e6",
+      BG_400: "#c5c3cc",
+      BG_500: "#7d7a8a",
+      BG_600: "#75797b",
+      BG_700: "#4a585e",
+      BG_800: "#4a585e",
+      BG_900: "#4a585e",
     },
   },
-  TYPOOGRAPHY: {
-    FONT: {
-      POPPINS: {
-        SIZE: {
-          XS: "12px",
-          S: "14px",
-          M: "16px",
-          L: "18px",
-          XL: "20px",
-        },
-      },
-      ROBOTO: {
-        SIZE: {
-          XXS: "10px",
-          XS: "12px",
-          S: "14px",
-          M: "16px",
-          L: "18px",
-          XL: "20px",
-          XXL: "22px",
-        },
-      },
-    },
-    WEIGHT: {
-      THIN: "100",
-      LIGHT: "300",
-      REGULAR: "400",
-      MEDIUM: "500",
-      BOLD: "700",
-      BLACK: "900",
-    },
-    LINE_HEIGHT: {
-      AUTO: "auto",
-      S: "100%",
-      M: "140%",
-      L: "160%",
-    },
-  },
-  FILTERS: {
-    BRIGHTEN: "brightness(1.2)",
-    DARKEN: "brightness(0.8)",
-    DESATURATE: "saturate(0.5)",
-  },
+  COMMONS: commons,
 };
 
 export default light;
