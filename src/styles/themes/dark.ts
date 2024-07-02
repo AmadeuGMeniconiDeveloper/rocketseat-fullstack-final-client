@@ -5,7 +5,7 @@ const dark: DefaultTheme = {
   MODE: "dark",
   COLORS: {
     PRIMARY: "#85000f",
-    SECONDARY: "#000000",
+    SECONDARY: "#0a161b",
     TINTS: {
       TOMATO: "#85000f",
       CARROT: "#fba94c",

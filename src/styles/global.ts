@@ -9,8 +9,13 @@ export default createGlobalStyle`
 		font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.POPPINS};
 		color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
 	}
+
+	:root {
+		font-size: 62.5%;
+	}
 	
 	body {
 		background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_400};
+		font-size: 1.6rem;
 	}
 `;

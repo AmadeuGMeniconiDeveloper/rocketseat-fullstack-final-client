@@ -10,10 +10,10 @@ const commons = {
   FILTERS: {
     BRIGHTEN: "brightness(1.2)",
     DARKEN: "brightness(0.8)",
-    DESATURATE: "saturate(0.5)",
+    DESATURATE: "saturate(0.4)",
   },
   BORDER_RADIUS: {
-    NONE: "0%",
+    NONE: "0px",
     S: "4px",
     M: "8px",
     L: "16px",

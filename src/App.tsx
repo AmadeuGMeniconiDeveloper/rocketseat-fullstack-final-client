@@ -8,6 +8,12 @@ import SignIn from "./pages/SignIn";
 
 import GlobalStyle from "./styles/global";
 import * as ThemeModes from "./styles/themes";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import RequireRouteAuth from "./routes/RequireRouteAuth";
+import { AuthProvider } from "./context/AuthProvider";
+import Home from "./pages/Home";
+import { ModalProvider } from "./context/ModalProvider";
 
 function App() {
   // const [theme, setTheme] = useLocalStoragePersistedState<DefaultTheme>(
@@ -24,7 +30,21 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <SignIn />
+      <BrowserRouter>
+        <ModalProvider>
+          <AuthProvider>
+            <Routes>
+              <Route element={<RequireRouteAuth />}>
+                <Route path="/" element={<Layout />}>
+                  <Route path="/" element={<Home />} />
+                </Route>
+              </Route>
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
+            </Routes>
+          </AuthProvider>
+        </ModalProvider>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

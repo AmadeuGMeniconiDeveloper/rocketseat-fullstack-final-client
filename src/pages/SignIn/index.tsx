@@ -1,14 +1,23 @@
-import Logo from "@/components/Logo/presentation";
-import InputText from "@/components/InputText/presentation";
-import Button from "@/components/Button/presentation";
+import Logo from "@/components/Logo";
+import InputText from "@/components/InputText";
+import Button from "@/components/Button";
 
 import { Container } from "./styled";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 function SignIn() {
+  const { signIn } = useContext(AuthContext);
+
+  const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log("Sign In");
+    signIn();
+  };
   return (
     <Container>
       <Logo />
-      <form>
+      <form onSubmit={handleSignIn}>
         <InputText
           title="Email"
           id="email"

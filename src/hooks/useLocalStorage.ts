@@ -2,10 +2,7 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
 type ReturnType<T> = [T, Dispatch<SetStateAction<T>>];
 
-function useSessionStoragePersistedState<T>(
-  key: string,
-  initialValue: T
-): ReturnType<T> {
+function useLocalStorage<T>(key: string, initialValue: T): ReturnType<T> {
   const [state, setState] = useState(() => {
     const storageValue = localStorage.getItem(key);
 
@@ -23,4 +20,4 @@ function useSessionStoragePersistedState<T>(
   return [state, setState];
 }
 
-export default useSessionStoragePersistedState;
+export default useLocalStorage;

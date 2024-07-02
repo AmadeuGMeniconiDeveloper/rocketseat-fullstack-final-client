@@ -1,6 +1,6 @@
-import Logo from "@/components/Logo/presentation";
-import InputText from "@/components/InputText/presentation";
-import Button from "@/components/Button/presentation";
+import Logo from "@/components/Logo";
+import InputText from "@/components/InputText";
+import Button from "@/components/Button";
 
 import { Container } from "./styled";
 
