@@ -10,7 +10,7 @@ const Container = styled.div`
   border: none;
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_400};
 
-  header {
+  & > header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,6 +19,18 @@ const Container = styled.div`
     padding: 56px 28px 24px 28px;
     border: none;
     background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 36px 28px 12px 28px;
+    border: none;
+
+    button {
+      align-self: self-start;
+    }
   }
 `;
 

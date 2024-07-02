@@ -1,10 +1,18 @@
 import { Container } from "./styled";
+import { ReactNode } from "react";
 
-function InputText(props: React.ComponentProps<"input">) {
+interface InputTextProps {
+  label?: string;
+}
+
+function InputText({
+  label,
+  ...props
+}: InputTextProps & React.ComponentProps<"input">) {
   return (
     <Container>
-      <label htmlFor={props.id}>{props.title}</label>
-      <input {...props} />
+      {label && <label htmlFor={props.id}>{label}</label>}
+      <input id={props.id} {...props} />
     </Container>
   );
 }

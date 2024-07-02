@@ -16,7 +16,7 @@ function Header() {
       <Button variant="ghost" onClick={openMenu}>
         <List size={24} />
       </Button>
-      <Logo variant="admin" />
+      <Logo variant="user" />
       <CartButton numberOfItems={0} variant="ghost">
         <Receipt size={24} />
       </CartButton>

@@ -3,35 +3,36 @@ import InputText from "@/components/InputText";
 import Button from "@/components/Button";
 
 import { Container } from "./styled";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   return (
     <Container>
-      <Logo />
+      <Logo variant="user" />
       <form>
         <InputText
-          title="Seu nome"
+          label="Seu nome"
           id="name"
           type="name"
           placeholder="Maria da Silva"
           required={true}
         />
         <InputText
-          title="Email"
+          label="Email"
           id="email"
           type="email"
           placeholder="exemplo@exemplo.com.br"
           required={true}
         />
         <InputText
-          title="Senha"
+          label="Senha"
           id="password"
           type="password"
           placeholder="No minimo 6 caracteres"
           required={true}
         />
         <Button type="submit">Criar conta</Button>
-        <a href="#">Ja tenho uma conta</a>
+        <Link to="/signin">Ja possui uma conta?</Link>
       </form>
     </Container>
   );

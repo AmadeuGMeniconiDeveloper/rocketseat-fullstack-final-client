@@ -11,7 +11,6 @@ const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.FOREGROUNG.FG_400};
     font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
   }
-
   input {
     border: none;
     border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
@@ -21,6 +20,7 @@ const Container = styled.div`
     font-size: 16px;
     line-height: 0%;
     padding: 14px 16px;
+    width: 100%;
   }
 `;
 

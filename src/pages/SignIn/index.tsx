@@ -1,10 +1,15 @@
+import { useContext } from "react";
+
 import Logo from "@/components/Logo";
 import InputText from "@/components/InputText";
 import Button from "@/components/Button";
 
-import { Container } from "./styled";
-import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
+
+import { Container } from "./styled";
+
+import { User } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   const { signIn } = useContext(AuthContext);
@@ -16,24 +21,24 @@ function SignIn() {
   };
   return (
     <Container>
-      <Logo />
+      <Logo variant="user" />
       <form onSubmit={handleSignIn}>
         <InputText
-          title="Email"
+          label="Email"
           id="email"
           type="email"
           placeholder="exemplo@exemplo.com.br"
           required={true}
         />
         <InputText
-          title="Senha"
+          label="Senha"
           id="password"
           type="password"
           placeholder="No minimo 6 caracteres"
           required={true}
         />
         <Button type="submit">Entrar</Button>
-        <a href="#">Criar uma conta</a>
+        <Link to="/signup">Criar uma conta</Link>
       </form>
     </Container>
   );

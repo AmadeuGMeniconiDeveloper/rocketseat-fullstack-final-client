@@ -30,6 +30,13 @@ function Logo({ variant }: LogoProps) {
           <h1>food explorer</h1>
         </LogoSimple>
       );
+    default:
+      return (
+        <LogoUser>
+          <img src={logo} alt="Logo" />
+          <h1>food explorer</h1>
+        </LogoUser>
+      );
   }
 }
 
