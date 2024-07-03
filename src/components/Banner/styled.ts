@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   width: 100%;
-  padding: 24px;
-  padding-bottom: 0;
+  padding-block: 24px;
   margin-bottom: 24px;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: linear-gradient(
@@ -15,9 +15,16 @@ const Container = styled.div`
     ${({ theme }) => theme.COLORS.BACKGROUND.BG_500}
   );
 
+  img {
+    position: absolute;
+    left: -12px;
+    bottom: 0;
+  }
+
   span {
-    min-width: 240px;
-    max-width: 280px;
+    margin-top: 12px;
+    width: 260px;
+
     h1 {
       font-size: 1.8rem;
       font-weight: 700;

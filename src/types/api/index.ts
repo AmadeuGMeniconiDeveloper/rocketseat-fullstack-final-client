@@ -1,0 +1,9 @@
+type Food = {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+  imageUrl: string;
+};
+
+export type { Food };

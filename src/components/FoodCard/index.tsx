@@ -37,7 +37,7 @@ function FoodCard({
       >
         <Heart size={24} weight={isLiked ? "fill" : "regular"} />
       </Button>
-      <img src={imageUrl} alt="Food" />
+      <img src={imageUrl} alt="Food" draggable="false" />
       <Button variant="ghost" style={{ fontSize: "1.4rem" }}>
         {title} {">"}
       </Button>
