@@ -6,7 +6,7 @@ const PrimaryButton = styled.button`
   align-items: center;
   gap: 0.5rem;
   padding-inline: 4rem;
-  height: 4rem;
+  /* height: 4rem; */
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: ${({ theme }) => theme.COLORS.PRIMARY};
