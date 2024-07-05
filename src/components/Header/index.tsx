@@ -7,19 +7,30 @@ import { Container } from "./styled";
 
 import { List, Receipt } from "@phosphor-icons/react";
 import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 function Header() {
   const { openMenu } = useContext(ModalContext);
+  const { auth } = useContext(AuthContext);
+
+  const userRole = auth?.user.role;
 
   return (
     <Container>
       <Button variant="ghost" onClick={openMenu}>
         <List size={24} />
       </Button>
-      <Logo variant="user" />
-      <CartButton numberOfItems={0} variant="ghost">
-        <Receipt size={24} />
-      </CartButton>
+
+      {userRole === "ADMIN" ? (
+        <Logo variant="admin" />
+      ) : (
+        <>
+          <Logo variant="user" />
+          <CartButton numberOfItems={0} variant="ghost">
+            <Receipt size={24} />
+          </CartButton>
+        </>
+      )}
     </Container>
   );
 }

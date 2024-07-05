@@ -46,7 +46,6 @@ function Home() {
   //   fetchMeals();
   // }, []);
 
-  // #DO: Implement Carousel
   return (
     <Container>
       <Banner />

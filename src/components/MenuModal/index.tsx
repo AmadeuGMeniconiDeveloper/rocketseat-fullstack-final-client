@@ -9,7 +9,9 @@ import { AuthContext } from "@/context/AuthContext";
 
 function MenuModal() {
   const { closeMenu } = useContext(ModalContext);
-  const { signOut } = useContext(AuthContext);
+  const { signOut, auth } = useContext(AuthContext);
+
+  const userRole = auth?.user.role;
 
   const handleSignOut = () => {
     closeMenu();
@@ -26,6 +28,7 @@ function MenuModal() {
       </header>
       <div>
         <InputText placeholder="Busque por pratos ou ingredientes" />
+        {userRole === "ADMIN" && <Button variant="ghost">Novo prato</Button>}
         <Button variant="ghost" onClick={handleSignOut}>
           Sair
         </Button>

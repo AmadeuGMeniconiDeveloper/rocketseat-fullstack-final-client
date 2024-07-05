@@ -12,11 +12,6 @@ const Container = styled.div`
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   padding: 2.4rem;
 
-  &:hover {
-    cursor: pointer;
-    filter: ${({ theme }) => theme.COMMONS.FILTERS.BRIGHTEN};
-  }
-
   & > img {
     width: 86px;
     height: 86px;

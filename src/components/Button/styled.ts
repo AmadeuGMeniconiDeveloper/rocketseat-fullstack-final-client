@@ -72,6 +72,7 @@ const GhostButton = styled.button`
 
   &:hover {
     filter: ${({ theme }) => theme.COMMONS.FILTERS.BRIGHTEN};
+    text-decoration: underline;
     cursor: pointer;
   }
 

@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 100vh;
 
   main {
-    /* flex: 1; */
+    flex: 1;
   }
 `;
 

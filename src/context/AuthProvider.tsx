@@ -1,8 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 import { AuthContext } from "./AuthContext";
-import { useNavigate } from "react-router-dom";
-import useLocalStorage from "@/hooks/useLocalStorage";
+
+import { Auth } from "@/types/api";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -10,21 +13,32 @@ interface AuthProviderProps {
 
 // #DO: Correctly implement authantication logic (auth, sign in, sign out)
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [auth, setAuth] = useLocalStorage<boolean>("isAuth", false);
+  const [auth, setAuth] = useLocalStorage<Auth | null>("auth", null);
 
   const navigate = useNavigate();
 
   const signIn = () => {
-    setAuth(true);
+    // #DO: Post request to API to validate credentials
+    const data: Auth = {
+      user: {
+        id: "1",
+        name: "Maria da Silva",
+        email: "exemplo@exemplo.com.br",
+        role: "USER",
+      },
+      token: "123",
+    };
+
+    setAuth(data);
     navigate("/");
   };
 
   const signOut = () => {
-    setAuth(false);
+    setAuth(null);
   };
 
   return (
-    <AuthContext.Provider value={{ auth, user: {}, signIn, signOut }}>
+    <AuthContext.Provider value={{ auth, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

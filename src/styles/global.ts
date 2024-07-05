@@ -12,6 +12,9 @@ export default createGlobalStyle`
 
 	:root {
 		font-size: 62.5%;
+
+		/* When in mobile screen size */
+		scrollbar-width: none;
 	}
 	
 	body {

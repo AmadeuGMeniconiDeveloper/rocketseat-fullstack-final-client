@@ -17,6 +17,7 @@ function Slider({ sliderItems }: SliderProps) {
   const renderSliderist = sliderItems.map(food => (
     <FoodCard
       key={food.id}
+      id={food.id}
       title={food.title}
       description={food.description}
       price={food.price}

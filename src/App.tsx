@@ -1,19 +1,17 @@
 import { useState } from "react";
-import { ThemeProvider, DefaultTheme } from "styled-components";
+import { BrowserRouter } from "react-router-dom";
 
 // import useLocalStoragePersistedState from "./hooks/useLocalStoragePersistedState";
 
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
+import { ThemeProvider, DefaultTheme } from "styled-components";
+import { AuthProvider } from "./context/AuthProvider";
+import { ModalProvider } from "./context/ModalProvider";
 
 import GlobalStyle from "./styles/global";
+
 import * as ThemeModes from "./styles/themes";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout";
-import RequireRouteAuth from "./routes/RequireRouteAuth";
-import { AuthProvider } from "./context/AuthProvider";
-import Home from "./pages/Home";
-import { ModalProvider } from "./context/ModalProvider";
+
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   // const [theme, setTheme] = useLocalStoragePersistedState<DefaultTheme>(
@@ -33,15 +31,7 @@ function App() {
       <BrowserRouter>
         <ModalProvider>
           <AuthProvider>
-            <Routes>
-              <Route element={<RequireRouteAuth />}>
-                <Route path="/" element={<Layout />}>
-                  <Route path="/" element={<Home />} />
-                </Route>
-              </Route>
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/signup" element={<SignUp />} />
-            </Routes>
+            <AppRoutes />
           </AuthProvider>
         </ModalProvider>
       </BrowserRouter>

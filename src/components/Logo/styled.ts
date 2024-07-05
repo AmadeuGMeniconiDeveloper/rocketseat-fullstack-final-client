@@ -4,7 +4,8 @@ const LogoUser = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: fit-content;
+  justify-content: center;
+  width: 100%;
   gap: 0.8rem;
 
   &:hover {
@@ -27,8 +28,10 @@ const LogoAdmin = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+
   align-items: center;
-  width: fit-content;
+  width: 100%;
   gap: 0.8rem;
 
   &:hover {
@@ -56,7 +59,7 @@ const LogoSimple = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: fit-content;
+
   gap: 0.6rem;
 
   filter: grayscale(1);

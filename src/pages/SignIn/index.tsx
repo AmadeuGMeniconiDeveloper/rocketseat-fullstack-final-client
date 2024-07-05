@@ -8,7 +8,6 @@ import { AuthContext } from "@/context/AuthContext";
 
 import { Container } from "./styled";
 
-import { User } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
 function SignIn() {
@@ -16,9 +15,9 @@ function SignIn() {
 
   const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Sign In");
     signIn();
   };
+
   return (
     <Container>
       <Logo variant="user" />

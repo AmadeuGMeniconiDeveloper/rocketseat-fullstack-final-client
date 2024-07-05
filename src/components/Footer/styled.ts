@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 // #CHECK: Modal render hack - footer z-index
 const Container = styled.div`
-  z-index: 2;
   display: flex;
   flex-direction: row;
   align-items: center;
