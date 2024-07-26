@@ -1,4 +1,4 @@
-import { ButtonVariants } from "@/types/components/variants";
+import { ButtonVariants } from "@/types/style/variants";
 
 import { GhostButton, PrimaryButton, SecondaryButton } from "./styled";
 

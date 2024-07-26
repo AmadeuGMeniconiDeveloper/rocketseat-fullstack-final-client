@@ -4,6 +4,8 @@ import { Food } from "@/types/api";
 import { Container } from "./styled";
 import { useEffect, useRef, useState } from "react";
 
+import foodImg from "@/assets/imgs/food-placeholders/Mask group-10.png";
+
 interface SliderProps {
   sliderItems: Food[];
 }
@@ -18,10 +20,10 @@ function Slider({ sliderItems }: SliderProps) {
     <FoodCard
       key={food.id}
       id={food.id}
-      title={food.title}
+      title={food.name}
       description={food.description}
       price={food.price}
-      imageUrl={food.imageUrl}
+      imageUrl={foodImg}
     />
   ));
 

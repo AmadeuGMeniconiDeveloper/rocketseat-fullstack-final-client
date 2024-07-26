@@ -5,56 +5,42 @@ import Banner from "@/components/Banner";
 import { Container } from "./styled";
 import Slider from "@/components/Slider";
 import { Food } from "@/types/api";
+import { api } from "@/config/api";
 
 function Home() {
-  const [meals, setMeals] = useState<Food[]>([
-    {
-      id: "1",
-      title: "Salada Ceasar",
-      description: "teste",
-      price: "20.00",
-      imageUrl:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    },
-    {
-      id: "2",
-      title: "Salada Ceasar",
-      description: "teste",
-      price: "20.00",
-      imageUrl:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    },
-    {
-      id: "3",
-      title: "Salada Ceasar",
-      description: "teste",
-      price: "20.00",
-      imageUrl:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    },
-  ]);
+  const [meals, setMeals] = useState<Food[]>([]);
+  const [desserts, setDesserts] = useState<Food[]>([]);
+  const [drinks, setDrinks] = useState<Food[]>([]);
 
-  const [deserts, setDeserts] = useState([]);
-  const [drinks, setDrinks] = useState([]);
+  useEffect(() => {
+    const fetchFoodData = async () => {
+      const { data } = await api.get("/products/all");
 
-  // useEffect(() => {
-  //   async function fetchMeals() {
-  //     const { data } = await api.get("/meals");
-  //     setMeals(data);
-  //   }
+      setMeals(data.products.meals);
+      setDrinks(data.products.drinks);
+      setDesserts(data.products.desserts);
+    };
 
-  //   fetchMeals();
-  // }, []);
+    fetchFoodData();
+  }, []);
 
   return (
     <Container>
       <Banner />
       <h2>Refeicoes</h2>
-      <Slider sliderItems={meals} />
+      {meals.length ? <Slider sliderItems={meals} /> : <p>No items found...</p>}
       <h2>Sobremesas</h2>
-      <Slider sliderItems={meals} />
+      {desserts.length ? (
+        <Slider sliderItems={desserts} />
+      ) : (
+        <p>No items found...</p>
+      )}
       <h2>Bebidas</h2>
-      <Slider sliderItems={meals} />
+      {drinks.length ? (
+        <Slider sliderItems={drinks} />
+      ) : (
+        <p>No items found...</p>
+      )}
     </Container>
   );
 }

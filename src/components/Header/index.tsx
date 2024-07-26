@@ -1,4 +1,7 @@
-import { ModalContext } from "@/context/ModalContext";
+import { useContext } from "react";
+
+import { AuthContext } from "@/contexts/AuthContext";
+
 import Button from "../Button";
 import CartButton from "../CartButton";
 import Logo from "../Logo";
@@ -6,14 +9,13 @@ import Logo from "../Logo";
 import { Container } from "./styled";
 
 import { List, Receipt } from "@phosphor-icons/react";
-import { useContext } from "react";
-import { AuthContext } from "@/context/AuthContext";
 
-function Header() {
-  const { openMenu } = useContext(ModalContext);
-  const { auth } = useContext(AuthContext);
+interface ModalContextProps {
+  openMenu: () => void;
+}
 
-  const userRole = auth?.user.role;
+function Header({ openMenu }: ModalContextProps) {
+  const { isAdmin } = useContext(AuthContext);
 
   return (
     <Container>
@@ -21,7 +23,7 @@ function Header() {
         <List size={24} />
       </Button>
 
-      {userRole === "ADMIN" ? (
+      {isAdmin ? (
         <Logo variant="admin" />
       ) : (
         <>

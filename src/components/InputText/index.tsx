@@ -2,17 +2,20 @@ import { Container } from "./styled";
 import { ReactNode } from "react";
 
 interface InputTextProps {
-  label?: string;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 }
 
 function InputText({
-  label,
+  leftIcon,
+  rightIcon,
   ...props
 }: InputTextProps & React.ComponentProps<"input">) {
   return (
     <Container>
-      {label && <label htmlFor={props.id}>{label}</label>}
-      <input id={props.id} {...props} />
+      {leftIcon && leftIcon}
+      <input {...props} />
+      {rightIcon && rightIcon}
     </Container>
   );
 }

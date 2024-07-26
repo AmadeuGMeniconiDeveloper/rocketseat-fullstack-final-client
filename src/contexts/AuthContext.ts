@@ -3,7 +3,8 @@ import { createContext } from "react";
 
 type AuthContextType = {
   auth: Auth | null;
-  signIn: () => void;
+  isAdmin: boolean;
+  signIn: (email: string, password: string) => Promise<void>;
   signOut: () => void;
 };
 

@@ -4,36 +4,48 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   width: 100%;
-  height: 4.8rem;
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_SOFT};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
   font-size: 16px;
+  height: 4.8rem;
   line-height: 0%;
 
   &:focus-within {
     outline: ${({ theme }) => theme.COLORS.TINTS.BLUE} solid 1px;
   }
 
-  input {
-    border: none;
-    border-radius: inherit;
-    background: transparent;
-    color: ${({ theme }) => theme.COLORS.TEXT.TEXT_SOFT};
-    font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
-    font-size: 16px;
-    padding: 0 16px;
-    line-height: 0%;
-    width: 100%;
-    height: 100%;
+  &:hover {
+    cursor: pointer;
+  }
 
-    &:focus-within {
-      outline: none;
-    }
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  button {
+    height: 100%;
+    padding: 0 16px;
+  }
+
+  button:first-of-type {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
+  }
+
+  input {
+    display: none;
   }
 `;
 

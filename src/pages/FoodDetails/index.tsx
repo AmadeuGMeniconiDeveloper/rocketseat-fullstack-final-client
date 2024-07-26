@@ -4,25 +4,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Container, FooterContainer, TagContainer } from "./styled";
 import AmountStepper from "@/components/AmountStepper";
 import { CaretLeft, Receipt } from "@phosphor-icons/react";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/contexts/AuthContext";
+import { api } from "@/config/api";
 
 function FoodDetails() {
-  const { auth } = useContext(AuthContext);
+  const { isAdmin } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const { id } = useParams();
 
-  const userRole = auth?.user.role;
-
-  // #CHECK/LOGIC: UseEffect to fetch food data
-  useEffect(() => {
-    // #DO: Fetch food data
-    // #DO: Set food data in state
-  }, []);
-
   return (
     <Container>
-      <Button variant="ghost" onClick={() => navigate(-1)}>
+      <Button variant="ghost" onClick={() => navigate("/home")}>
         <CaretLeft size={24} />
         Voltar
       </Button>
@@ -44,7 +38,7 @@ function FoodDetails() {
         <p>Ceassdfsdfsdar</p>
       </TagContainer>
       <FooterContainer>
-        {userRole === "ADMIN" ? (
+        {isAdmin ? (
           <Button variant="primary">editar prato</Button>
         ) : (
           <>

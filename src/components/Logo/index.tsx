@@ -1,6 +1,6 @@
 import logo from "@/assets/imgs/Polygon.png";
 import { LogoAdmin, LogoSimple, LogoUser } from "./styled";
-import { LogoVariants } from "@/types/components/variants";
+import { LogoVariants } from "@/types/style/variants";
 
 interface LogoProps {
   variant?: LogoVariants;

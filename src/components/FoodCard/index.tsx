@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/contexts/AuthContext";
 
 import AmountStepper from "../AmountStepper";
 import Button from "../Button";
@@ -33,9 +33,7 @@ function FoodCard({
   const [isLiked, setIsLiked] = useState(like);
   const navigate = useNavigate();
 
-  const { auth } = useContext(AuthContext);
-
-  const userRole = auth?.user.role;
+  const { isAdmin } = useContext(AuthContext);
 
   const handleToggleLike = () => {
     setIsLiked(!isLiked);
@@ -43,7 +41,7 @@ function FoodCard({
 
   return (
     <Container>
-      {userRole === "ADMIN" ? (
+      {isAdmin ? (
         <Button
           variant="ghost"
           onClick={handleToggleLike}
@@ -62,13 +60,15 @@ function FoodCard({
       )}
 
       <img src={imageUrl} alt="Food" draggable="false" />
+
       <Button onClick={() => navigate(`/details/${id}`)} variant="ghost">
         {title} <CaretRight size={14} />
       </Button>
+
       {description && <p>{description}</p>}
       <h3>${price}</h3>
 
-      {userRole === "USER" && (
+      {!isAdmin && (
         <>
           <AmountStepper />
           <Button variant="primary">inclur</Button>

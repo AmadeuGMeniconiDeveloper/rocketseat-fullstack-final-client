@@ -1,16 +1,22 @@
-type Food = {
+interface Food {
   id: string;
-  title: string;
+  name: string;
+  favorited: boolean;
+  category: "Refeicao" | "Bebida" | "Sobremesa";
   description: string;
   price: string;
   imageUrl: string;
+}
+
+export const USER_ROLES = {
+  ADMIN: "admin",
+  CUSTOMER: "customer",
 };
 
 interface User {
-  id: string;
   email: string;
   name: string;
-  role: "USER" | "ADMIN";
+  role: "admin" | "customer";
 }
 
 interface Auth {

@@ -1,25 +1,20 @@
-import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-// import useLocalStoragePersistedState from "./hooks/useLocalStoragePersistedState";
+import useLocalStorage from "./hooks/useLocalStorage";
 
-import { ThemeProvider, DefaultTheme } from "styled-components";
-import { AuthProvider } from "./context/AuthProvider";
-import { ModalProvider } from "./context/ModalProvider";
-
-import GlobalStyle from "./styles/global";
-
-import * as ThemeModes from "./styles/themes";
+import { AuthProvider } from "./contexts/AuthProvider";
 
 import AppRoutes from "./routes/AppRoutes";
 
-function App() {
-  // const [theme, setTheme] = useLocalStoragePersistedState<DefaultTheme>(
-  //   "theme",
-  //   ThemeModes.dark
-  // );
+import { ThemeProvider, DefaultTheme } from "styled-components";
+import GlobalStyle from "./styles/global";
+import * as ThemeModes from "./styles/themes";
 
-  const [theme, setTheme] = useState<DefaultTheme>(ThemeModes.dark);
+function App() {
+  const [theme, setTheme] = useLocalStorage<DefaultTheme>(
+    "theme",
+    ThemeModes.dark
+  );
 
   const toogleTheme = () => {
     setTheme(theme.MODE === "light" ? ThemeModes.dark : ThemeModes.light);
@@ -29,11 +24,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
-        <ModalProvider>
-          <AuthProvider>
-            <AppRoutes />
-          </AuthProvider>
-        </ModalProvider>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
       </BrowserRouter>
     </ThemeProvider>
   );

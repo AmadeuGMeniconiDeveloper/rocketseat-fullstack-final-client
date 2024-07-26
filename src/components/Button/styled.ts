@@ -33,7 +33,7 @@ const SecondaryButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   width: 100%;
   height: 4rem;
   border: none;
@@ -62,8 +62,8 @@ const GhostButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.6rem;
+  gap: 0.8rem;
+  /* padding: 0.6rem; */
   border: none;
   background: transparent;
   font-size: 1.4rem;
