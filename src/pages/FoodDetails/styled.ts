@@ -8,14 +8,6 @@ const Container = styled.div`
   align-items: center;
   padding: 44px;
 
-  & > img {
-    aspect-ratio: 1/1;
-    width: 254px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.FULL};
-  }
-
   & > button {
     align-self: start;
   }
@@ -34,7 +26,7 @@ const TagContainer = styled.div`
   width: 100%;
   margin-bottom: 24px;
 
-  & > p {
+  & span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,4 +45,31 @@ const FooterContainer = styled.div`
   width: 100%;
 `;
 
-export { Container, TagContainer, FooterContainer };
+const ImageContainer = styled.div`
+  width: 254px;
+  height: 254px;
+
+  & > img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.FULL};
+  }
+`;
+
+const LoadingContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
+
+export {
+  Container,
+  TagContainer,
+  FooterContainer,
+  ImageContainer,
+  LoadingContainer,
+};

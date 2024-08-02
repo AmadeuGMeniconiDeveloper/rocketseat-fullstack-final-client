@@ -15,6 +15,8 @@ export default createGlobalStyle`
 
 		/* When in mobile screen size */
 		scrollbar-width: none;
+
+	
 	}
 	
 	body {

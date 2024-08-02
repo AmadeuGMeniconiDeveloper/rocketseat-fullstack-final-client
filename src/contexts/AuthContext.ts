@@ -1,9 +1,9 @@
-import { Auth, User } from "@/types/api";
+import { Auth } from "@/types/api";
 import { createContext } from "react";
 
 type AuthContextType = {
   auth: Auth | null;
-  isAdmin: boolean;
+  isAdmin: boolean | null;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => void;
 };

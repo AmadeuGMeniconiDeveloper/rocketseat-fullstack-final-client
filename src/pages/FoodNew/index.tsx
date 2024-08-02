@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "@/components/Button";
@@ -17,48 +17,45 @@ import { CaretLeft } from "@phosphor-icons/react";
 import { api } from "@/config/api";
 
 function FoodNew() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [image, setImage] = useState<File | null>(null);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState<Food["category"]>("Refeicao");
 
   const navigate = useNavigate();
 
   const categories: Food["category"][] = ["Refeicao", "Bebida", "Sobremesa"];
 
-  const handleSubmit = async (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (
-      !name ||
-      // !description ||
-      !price ||
-      !ingredients ||
-      // !image ||
-      !category
-    ) {
-      return alert("Todos os campos devem ser preenchidos!");
-    }
 
     try {
-      const response = await api.post("/products", {
+      const { data } = await api.post("/products", {
         name,
         description,
-        price: Number(price),
+        price,
         ingredients,
-        // image,
         category,
       });
 
-      alert("Prato criado com sucesso!");
+      await api.post(
+        `/products/${data.newProductId}/images`,
+        {
+          image,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      alert("Criado com sucesso!");
       navigate("/home");
-      console.log(response.data);
     } catch (error) {
-      console.error(error);
-      return alert("Erro ao criar prato!");
+      alert(error);
     }
   };
 
@@ -68,49 +65,65 @@ function FoodNew() {
         <CaretLeft size={24} />
         Voltar
       </Button>
-      <h1>Novo Prato</h1>
-      <Label>
-        Imagem do prato
-        <InputFile selectedFile={image} setSelectedFile={setImage} />
-      </Label>
-      <Label>
-        Nome
-        <InputText
-          placeholder="Salada Ceasar"
-          onChange={e => setName(e.target.value)}
-          value={name}
-        />
-      </Label>
-      <Label>
-        Categoria
-        <Select
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-          options={categories}
-        />
-      </Label>
-      <Label>
-        Ingredientes
-        <InputTags tags={ingredients} setTags={setIngredients} />
-      </Label>
-      <Label>
-        Preco
-        <InputText
-          placeholder="R$ 0,00"
-          onChange={e => setPrice(e.target.value)}
-          value={price}
-        />
-      </Label>
-      <Label>
-        Descricao
-        <TextArea
-          rows={4}
-          placeholder="Frite o alcatra e misture com o hambuerguer de carne"
-          onChange={e => setDescription(e.target.value)}
-          value={description}
-        />
-      </Label>
-      <Button variant="primary" onClick={handleSubmit}>
+      <form
+        id="new-food"
+        onSubmit={e => handleSubmit(e)}
+        encType="multipart/form-data"
+      >
+        <h1>Novo Prato</h1>
+        <Label>
+          Imagem do prato
+          <InputFile
+            selectedFile={image}
+            setSelectedFile={setImage}
+            placeholder="Selecione uma imagem"
+          />
+        </Label>
+        <Label>
+          Nome
+          <InputText
+            placeholder="Salada Ceasar"
+            onChange={e => setName(e.target.value)}
+            value={name}
+            required
+          />
+        </Label>
+        <Label>
+          Categoria
+          <Select
+            value={category}
+            onChange={e => setCategory(e.target.value as Food["category"])}
+            options={categories}
+            required
+          />
+        </Label>
+        <Label>
+          Ingredientes
+          <InputTags tags={ingredients} setTags={setIngredients} />
+        </Label>
+        <Label>
+          Preco
+          <InputText
+            placeholder="R$ 0.00"
+            onChange={e => setPrice(e.target.value)}
+            value={price}
+            type="number"
+            min={0}
+            step={0.01}
+            required
+          />
+        </Label>
+        <Label>
+          Descricao
+          <TextArea
+            rows={4}
+            placeholder="Frite o alcatra e misture com o hambuerguer de carne"
+            onChange={e => setDescription(e.target.value)}
+            value={description}
+          />
+        </Label>
+      </form>
+      <Button variant="primary" type="submit" form="new-food">
         Adicionar
       </Button>
     </Container>

@@ -1,12 +1,13 @@
-import { Minus, Plus } from "@phosphor-icons/react";
 import Button from "../Button";
 import { Container } from "./styled";
-import { useState } from "react";
+import { Minus, Plus } from "@phosphor-icons/react";
 
-// #DO: Implement CartContext (add amount of this product to cart)
-function AmountStepper() {
-  const [amount, setAmount] = useState(1);
+interface AmountStepperProps {
+  amount: number;
+  setAmount: React.Dispatch<React.SetStateAction<number>>;
+}
 
+function AmountStepper({ amount, setAmount }: AmountStepperProps) {
   const handleChangeAmount = (operation: "+" | "-") => {
     if (operation === "-") {
       if (amount > 1) {

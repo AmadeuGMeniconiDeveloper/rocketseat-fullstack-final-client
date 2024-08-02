@@ -48,7 +48,7 @@ function InputTags({ tags, setTags }: InputTagsProps) {
       <AddTag>
         <input
           placeholder="Adicionar"
-          onChange={e => setNewTag(e.target.value)}
+          onChange={e => setNewTag(e.target.value.toLowerCase())}
           value={newTag}
         />
         <Button variant="ghost" onClick={e => addTag(newTag, e)}>

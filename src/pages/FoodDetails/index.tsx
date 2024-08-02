@@ -1,18 +1,49 @@
-import Button from "@/components/Button";
-import { useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container, FooterContainer, TagContainer } from "./styled";
-import AmountStepper from "@/components/AmountStepper";
-import { CaretLeft, Receipt } from "@phosphor-icons/react";
-import { AuthContext } from "@/contexts/AuthContext";
+
 import { api } from "@/config/api";
+
+import { AuthContext } from "@/contexts/AuthContext";
+
+import Button from "@/components/Button";
+import AmountStepper from "@/components/AmountStepper";
+import Tag from "@/components/Tag";
+
+import {
+  Container,
+  FooterContainer,
+  ImageContainer,
+  LoadingContainer,
+  TagContainer,
+} from "./styled";
+
+import { CaretLeft, Receipt } from "@phosphor-icons/react";
+import { Food } from "@/types/api";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 function FoodDetails() {
   const { isAdmin } = useContext(AuthContext);
 
+  const [food, setFood] = useState<Food | null>();
+  const [quanity, setQuanity] = useState(1);
+
   const navigate = useNavigate();
 
   const { id } = useParams();
+
+  useEffect(() => {
+    const fetchFood = async () => {
+      const response = await api.get(`/products/${id}`);
+
+      setFood(response.data);
+    };
+
+    fetchFood();
+  }, []);
+
+  if (!food) {
+    return <LoadingContainer>Loading...</LoadingContainer>;
+  }
 
   return (
     <Container>
@@ -20,32 +51,35 @@ function FoodDetails() {
         <CaretLeft size={24} />
         Voltar
       </Button>
-      <img
-        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-        alt="Example"
-      />
-      <h2>Salada Ceasar</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias,
-        culpa.
-      </p>
+      <ImageContainer>
+        {food.image ? (
+          <img
+            src={`${api.defaults.baseURL}/files/${food.image}`}
+            alt={food.name}
+            draggable="false"
+          />
+        ) : (
+          <ImagePlaceholder alt={food.name} />
+        )}
+      </ImageContainer>
+      <h2>{food.name}</h2>
+      <p>{food.description}</p>
       <TagContainer>
-        <p>Sasdfsdflada</p>
-        <p>Ceasar</p>
-        <p>Salasdfsdfda</p>
-        <p>Ceasar</p>
-        <p>Salada</p>
-        <p>Ceassdfsdfsdar</p>
+        {food.ingredients.map(ingredient => (
+          <Tag title={ingredient} key={ingredient} />
+        ))}
       </TagContainer>
       <FooterContainer>
         {isAdmin ? (
-          <Button variant="primary">editar prato</Button>
+          <Button variant="primary" onClick={() => navigate(`/edit/${id}`)}>
+            Editar prato
+          </Button>
         ) : (
           <>
-            <AmountStepper />
+            <AmountStepper amount={quanity} setAmount={setQuanity} />
             <Button variant="primary">
               <Receipt size={24} />
-              pedir - $20.00
+              Pedir - R${food.price}
             </Button>
           </>
         )}

@@ -14,7 +14,7 @@ function InputText({
   return (
     <Container>
       {leftIcon && leftIcon}
-      <input {...props} />
+      <input {...props} autoComplete="off" />
       {rightIcon && rightIcon}
     </Container>
   );

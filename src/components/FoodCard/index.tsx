@@ -6,37 +6,36 @@ import { AuthContext } from "@/contexts/AuthContext";
 import AmountStepper from "../AmountStepper";
 import Button from "../Button";
 
-import { Container } from "./styled";
+import { Container, ImageContainer } from "./styled";
 
 import { CaretRight, Heart, PencilSimple } from "@phosphor-icons/react";
+import { Food } from "@/types/api";
+import { api } from "@/config/api";
 
-interface FoodCardProps {
-  id: string;
-  imageUrl: string;
-  title: string;
-  description?: string;
-  price: string;
-  like?: boolean;
-  // or data: foodData;
-}
+import { AppContext } from "@/contexts/AppContext";
 
-// #DO: Implement CartContext (Confirm amount of this product to cart [onClick "incluir"])
-// #DO: Implement LikeContext (Store if this product is liked or not [onClick "Heart Icon"])
-function FoodCard({
-  id,
-  description,
-  imageUrl,
-  price,
-  title,
-  like,
-}: FoodCardProps) {
-  const [isLiked, setIsLiked] = useState(like);
+import ImagePlaceholder from "../ImagePlaceholder";
+
+function FoodCard(food: Food) {
+  const { isAdmin } = useContext(AuthContext);
+  const { addToCart, toggleFavorite, favorites } = useContext(AppContext);
+
+  const [isFavorited, setIsFavorited] = useState(favorites.includes(food.id));
+  const [amount, setAmount] = useState(1);
+
   const navigate = useNavigate();
 
-  const { isAdmin } = useContext(AuthContext);
+  const handleEditFood = () => {
+    navigate(`/edit/${food.id}`);
+  };
 
-  const handleToggleLike = () => {
-    setIsLiked(!isLiked);
+  const handleAddToCart = async () => {
+    addToCart(food.id, amount);
+  };
+
+  const handleToggleFavorite = async () => {
+    await toggleFavorite(food.id);
+    setIsFavorited(!isFavorited);
   };
 
   return (
@@ -44,7 +43,7 @@ function FoodCard({
       {isAdmin ? (
         <Button
           variant="ghost"
-          onClick={handleToggleLike}
+          onClick={handleEditFood}
           style={{ position: "absolute", top: "1.6rem", right: "1.6rem" }}
         >
           <PencilSimple size={24} />
@@ -52,26 +51,36 @@ function FoodCard({
       ) : (
         <Button
           variant="ghost"
-          onClick={handleToggleLike}
+          onClick={handleToggleFavorite}
           style={{ position: "absolute", top: "1.6rem", right: "1.6rem" }}
         >
-          <Heart size={24} weight={isLiked ? "fill" : "regular"} />
+          <Heart size={24} weight={isFavorited ? "fill" : "regular"} />
         </Button>
       )}
-
-      <img src={imageUrl} alt="Food" draggable="false" />
-
-      <Button onClick={() => navigate(`/details/${id}`)} variant="ghost">
-        {title} <CaretRight size={14} />
+      <ImageContainer>
+        {food.image ? (
+          <img
+            src={`${api.defaults.baseURL}/files/${food.image}`}
+            alt={food.name}
+            draggable="false"
+          />
+        ) : (
+          <ImagePlaceholder alt={food.name} />
+        )}
+      </ImageContainer>
+      <Button onClick={() => navigate(`/details/${food.id}`)} variant="ghost">
+        {food.name} <CaretRight size={14} />
       </Button>
 
-      {description && <p>{description}</p>}
-      <h3>${price}</h3>
+      {food.description && <p>{food.description}</p>}
+      <h3>${food.price}</h3>
 
       {!isAdmin && (
         <>
-          <AmountStepper />
-          <Button variant="primary">inclur</Button>
+          <AmountStepper amount={amount} setAmount={setAmount} />
+          <Button variant="primary" onClick={handleAddToCart}>
+            inclur
+          </Button>
         </>
       )}
     </Container>

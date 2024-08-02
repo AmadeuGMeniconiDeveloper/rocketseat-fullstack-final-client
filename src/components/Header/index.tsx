@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { AuthContext } from "@/contexts/AuthContext";
 
@@ -9,6 +9,8 @@ import Logo from "../Logo";
 import { Container } from "./styled";
 
 import { List, Receipt } from "@phosphor-icons/react";
+import { AppContext } from "@/contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 interface ModalContextProps {
   openMenu: () => void;
@@ -16,6 +18,9 @@ interface ModalContextProps {
 
 function Header({ openMenu }: ModalContextProps) {
   const { isAdmin } = useContext(AuthContext);
+  const { cart } = useContext(AppContext);
+
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -28,7 +33,11 @@ function Header({ openMenu }: ModalContextProps) {
       ) : (
         <>
           <Logo variant="user" />
-          <CartButton numberOfItems={0} variant="ghost">
+          <CartButton
+            numberOfItems={cart.length}
+            variant="ghost"
+            onClick={() => navigate("/cart")}
+          >
             <Receipt size={24} />
           </CartButton>
         </>

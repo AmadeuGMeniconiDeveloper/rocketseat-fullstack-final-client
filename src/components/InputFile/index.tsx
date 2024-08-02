@@ -53,7 +53,7 @@ function InputFile({
       <Button variant="ghost" onClick={e => handleChooseFile(e)}>
         {selectedFile ? <File size={24} /> : <Upload size={24} />}
         {/* #DO: Trucate file name display */}
-        {selectedFile ? selectedFile.name : "Selecionar imagem"}
+        {selectedFile ? selectedFile.name : props.placeholder}
       </Button>
       {selectedFile && (
         <Button variant="ghost" onClick={e => handleRemoveFile(e)}>

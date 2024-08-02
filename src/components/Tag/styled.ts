@@ -4,12 +4,13 @@ export const Container = styled.span`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: ${({ theme }) => theme.COLORS.FOREGROUNG.FG_600};
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
   font-size: 14px;
+  gap: 1rem;
   font-weight: 500;
   height: 3rem;
   line-height: 0%;
@@ -20,6 +21,5 @@ export const Container = styled.span`
     font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
     text-align: center;
     font-weight: 400;
-    margin-right: 8px;
   }
 `;

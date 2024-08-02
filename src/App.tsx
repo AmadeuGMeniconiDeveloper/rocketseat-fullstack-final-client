@@ -9,6 +9,7 @@ import AppRoutes from "./routes/AppRoutes";
 import { ThemeProvider, DefaultTheme } from "styled-components";
 import GlobalStyle from "./styles/global";
 import * as ThemeModes from "./styles/themes";
+import { AppProvider } from "./contexts/AppProvider";
 
 function App() {
   const [theme, setTheme] = useLocalStorage<DefaultTheme>(
@@ -25,7 +26,9 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <AuthProvider>
-          <AppRoutes />
+          <AppProvider>
+            <AppRoutes />
+          </AppProvider>
         </AuthProvider>
       </BrowserRouter>
     </ThemeProvider>

@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

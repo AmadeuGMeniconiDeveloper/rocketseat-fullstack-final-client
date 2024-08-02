@@ -4,8 +4,6 @@ import { Food } from "@/types/api";
 import { Container } from "./styled";
 import { useEffect, useRef, useState } from "react";
 
-import foodImg from "@/assets/imgs/food-placeholders/Mask group-10.png";
-
 interface SliderProps {
   sliderItems: Food[];
 }
@@ -16,14 +14,16 @@ function Slider({ sliderItems }: SliderProps) {
   const [sliderWidth, setSliderWidth] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const renderSliderist = sliderItems.map(food => (
+  const renderSliderList = sliderItems.map(food => (
     <FoodCard
       key={food.id}
       id={food.id}
-      title={food.name}
+      name={food.name}
       description={food.description}
+      ingredients={food.ingredients}
+      category={food.category}
       price={food.price}
-      imageUrl={foodImg}
+      image={food.image}
     />
   ));
 
@@ -33,7 +33,7 @@ function Slider({ sliderItems }: SliderProps) {
         sliderRef.current.scrollWidth - sliderRef.current.offsetWidth
       );
     }
-  }, []);
+  }, [sliderItems]);
 
   return (
     <Container>
@@ -42,7 +42,7 @@ function Slider({ sliderItems }: SliderProps) {
           drag={"x"}
           dragConstraints={{ right: 0, left: -sliderWidth }}
         >
-          {renderSliderist}
+          {renderSliderList}
         </motion.ul>
       </motion.div>
     </Container>

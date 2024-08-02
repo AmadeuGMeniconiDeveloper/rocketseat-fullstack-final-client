@@ -2,30 +2,33 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
-  padding: 24px;
+  padding-inline: 24px;
+  padding-block: 44px 24px;
   gap: 24px;
-
-  & > h1 {
-    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XXXLARGE};
-    font-weight: 500;
-    color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
-  }
 
   & > button {
     align-self: start;
   }
 
-  form {
+  h1 {
+    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XXXLARGE};
+    font-weight: 500;
+    color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
+  }
+
+  ul {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 1.5rem;
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
   }
 `;
 
-const ButtonGroup = styled.div`
-  display: flex;
-  gap: 2rem;
-`;
-
-export { Container, ButtonGroup };
+export { Container };

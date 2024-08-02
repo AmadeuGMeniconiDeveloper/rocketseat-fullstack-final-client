@@ -11,6 +11,9 @@ const Container = styled.select`
   width: 100%;
   padding: 0 14px;
   height: 4.8rem;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
 `;
 
 export { Container };

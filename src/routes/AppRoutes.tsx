@@ -10,6 +10,8 @@ import SignUp from "@/pages/SignUp";
 import FoodDetails from "@/pages/FoodDetails";
 import FoodNew from "@/pages/FoodNew";
 import FoodEdit from "@/pages/FoodEdit";
+import Favorites from "@/pages/Favorites";
+import Cart from "@/pages/Cart";
 
 function AppRoutes() {
   const { auth, isAdmin } = useContext(AuthContext);
@@ -19,21 +21,23 @@ function AppRoutes() {
     return (
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/new" element={<FoodNew />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/details/:id" element={<FoodDetails />} />
+          {/* //#DO: Implement customer routes: Favorites, Orders, Cart & Payment */}
+          <Route path="home" element={<Home />} />
+          <Route path="details/:id" element={<FoodDetails />} />
+          <Route path="favorites" element={<Favorites />} />
+          <Route path="cart" element={<Cart />} />
+
           {isAdmin && (
             <>
-              <Route path="/edit/:id" element={<FoodEdit />} />
-              <Route path="/new" element={<FoodNew />} />
+              <Route path="edit/:id" element={<FoodEdit />} />
+              <Route path="new" element={<FoodNew />} />
             </>
           )}
 
+          {/* //#DO: Implement 404 page */}
           <Route
             path="*"
-            element={
-              <Navigate to="/signin" state={{ from: location }} replace />
-            }
+            element={<Navigate to="/home" state={{ from: location }} replace />}
           />
         </Route>
       </Routes>

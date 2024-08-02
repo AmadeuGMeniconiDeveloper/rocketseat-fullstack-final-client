@@ -12,13 +12,6 @@ const Container = styled.div`
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   padding: 2.4rem;
 
-  & > img {
-    width: 86px;
-    height: 86px;
-    object-fit: cover;
-    border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.FULL};
-  }
-
   & > h1 {
     font-size: 1.4rem;
   }
@@ -30,4 +23,17 @@ const Container = styled.div`
   }
 `;
 
-export { Container };
+const ImageContainer = styled.div`
+  width: 86px;
+  height: 86px;
+  border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.FULL};
+
+  & > img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    object-fit: cover;
+    border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.FULL};
+  }
+`;
+
+export { Container, ImageContainer };

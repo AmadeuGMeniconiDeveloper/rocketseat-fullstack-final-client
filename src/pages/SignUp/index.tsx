@@ -7,11 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { api } from "@/config/api";
 import Label from "@/components/Label";
+import Select from "@/components/InputSelect";
 
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState<"customer" | "admin">("customer");
 
   const navigate = useNavigate();
 
@@ -21,13 +23,13 @@ function SignUp() {
         name,
         email,
         password,
-        role: "admin",
+        role,
       });
 
       alert("Conta criada com sucesso!");
       navigate("/signin");
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error);
     }
   };
 
@@ -64,6 +66,19 @@ function SignUp() {
             required={true}
             onChange={event => setPassword(event.target.value)}
           />
+        </Label>
+        <Label>
+          Tipo de conta
+          <Select
+            id="role"
+            options={["customer", "admin"]}
+            onChange={event =>
+              setRole(event.target.value as "customer" | "admin")
+            }
+          >
+            <option value="customer">Cliente</option>
+            <option value="admin">Administrador</option>
+          </Select>
         </Label>
         <Button type="button" onClick={handleSignUp}>
           Criar conta

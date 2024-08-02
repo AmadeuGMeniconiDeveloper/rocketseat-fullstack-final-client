@@ -4,7 +4,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 1rem;
   align-items: center;
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
@@ -16,7 +16,7 @@ const Container = styled.div`
   width: 100%;
   min-height: 4.8rem;
   height: fit-content;
-  padding: 0 8px;
+  padding: 1rem 1rem;
 `;
 
 const AddTag = styled.span`

@@ -1,28 +1,31 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Banner from "@/components/Banner";
+import Slider from "@/components/Slider";
 
 import { Container } from "./styled";
-import Slider from "@/components/Slider";
+
 import { Food } from "@/types/api";
-import { api } from "@/config/api";
+import { AppContext } from "@/contexts/AppContext";
 
 function Home() {
-  const [meals, setMeals] = useState<Food[]>([]);
-  const [desserts, setDesserts] = useState<Food[]>([]);
-  const [drinks, setDrinks] = useState<Food[]>([]);
+  const { foods } = useContext(AppContext);
+
+  const [meals, setMeals] = useState<Food[]>(
+    foods.filter((food: Food) => food.category === "Refeicao")
+  );
+  const [desserts, setDesserts] = useState<Food[]>(
+    foods.filter((food: Food) => food.category === "Sobremesa")
+  );
+  const [drinks, setDrinks] = useState<Food[]>(
+    foods.filter((food: Food) => food.category === "Bebida")
+  );
 
   useEffect(() => {
-    const fetchFoodData = async () => {
-      const { data } = await api.get("/products/all");
-
-      setMeals(data.products.meals);
-      setDrinks(data.products.drinks);
-      setDesserts(data.products.desserts);
-    };
-
-    fetchFoodData();
-  }, []);
+    setMeals(foods.filter((food: Food) => food.category === "Refeicao"));
+    setDesserts(foods.filter((food: Food) => food.category === "Sobremesa"));
+    setDrinks(foods.filter((food: Food) => food.category === "Bebida"));
+  }, [foods]);
 
   return (
     <Container>
