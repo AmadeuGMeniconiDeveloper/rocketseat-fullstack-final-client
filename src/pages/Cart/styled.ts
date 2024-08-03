@@ -13,7 +13,7 @@ const Container = styled.div`
     align-self: start;
   }
 
-  h1 {
+  & > h1 {
     font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XXXLARGE};
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
@@ -33,6 +33,7 @@ const Container = styled.div`
     font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XLARGE};
     font-weight: 600;
     color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
+    margin-bottom: 2rem;
   }
 `;
 
@@ -42,6 +43,8 @@ const CartItemList = styled.ul`
   align-items: start;
   justify-content: start;
   gap: 1.5rem;
+  height: 100%;
+  margin-bottom: 3rem;
 `;
 
 export { Container, CartItemList };

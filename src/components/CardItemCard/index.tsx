@@ -1,17 +1,12 @@
 import { ComponentProps, Dispatch, SetStateAction, useContext } from "react";
-import Button from "../Button";
 
-import {
-  Container,
-  ImageContainer,
-  PriceContainer,
-  QuantityContainer,
-} from "./styled";
+import { Container, ImageContainer, PriceContainer } from "./styled";
 
 import { CartItem, Food } from "@/types/api";
 import { api } from "@/config/api";
 import ImagePlaceholder from "../ImagePlaceholder";
 import { Link } from "react-router-dom";
+import Button from "../Button";
 
 interface FavoriteCardProps {
   cartItem: CartItem;

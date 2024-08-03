@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "@/contexts/AuthContext";
 
 import AmountStepper from "../AmountStepper";
-import Button from "../Button";
 
 import { Container, ImageContainer } from "./styled";
 
@@ -15,6 +14,7 @@ import { api } from "@/config/api";
 import { AppContext } from "@/contexts/AppContext";
 
 import ImagePlaceholder from "../ImagePlaceholder";
+import Button from "../Button";
 
 function FoodCard(food: Food) {
   const { isAdmin } = useContext(AuthContext);

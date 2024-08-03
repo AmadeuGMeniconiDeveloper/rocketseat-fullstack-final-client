@@ -12,7 +12,7 @@ const Container = styled.div`
     align-self: start;
   }
 
-  h1 {
+  & > h1 {
     font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XXXLARGE};
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};

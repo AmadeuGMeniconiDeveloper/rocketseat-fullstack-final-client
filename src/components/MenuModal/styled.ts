@@ -14,7 +14,9 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 56px 28px 24px 28px;
+    padding-inline: 28px;
+    padding-top: 32px;
+    height: 104px;
     border: none;
     background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
   }
@@ -77,11 +79,32 @@ const SearchList = styled.ul`
   }
 `;
 
-const ButtonList = styled.ul`
+const NavigationList = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
+
+  a {
+    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XXLARGE};
+    font-weight: 300;
+    color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
+
+    &:hover {
+      filter: ${({ theme }) => theme.COMMONS.FILTERS.BRIGHTEN};
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    &:active {
+      filter: ${({ theme }) => theme.COMMONS.FILTERS.DARKEN};
+    }
+
+    &:disabled {
+      filter: ${({ theme }) => theme.COMMONS.FILTERS.DESATURATE};
+      cursor: default;
+    }
+  }
 `;
 
 const MessageBox = styled.div`
@@ -104,4 +127,4 @@ const MessageBox = styled.div`
   }
 `;
 
-export { Container, SearchList, ButtonList, MessageBox };
+export { Container, SearchList, NavigationList, MessageBox };

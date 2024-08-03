@@ -2,12 +2,12 @@ import { useContext } from "react";
 
 import { CartItemList, Container } from "./styled";
 
-import { CartItem, Food } from "@/types/api";
+import { CartItem } from "@/types/api";
 import { CaretLeft } from "@phosphor-icons/react";
-import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "@/contexts/AppContext";
 import CartItemCard from "@/components/CardItemCard";
+import Button from "@/components/Button";
 
 function Cart() {
   const { cart, removeFromCart } = useContext(AppContext);
@@ -34,7 +34,7 @@ function Cart() {
         <CaretLeft size={24} />
         Voltar
       </Button>
-      <h1>Pedido</h1>
+      <h1>Carrinho</h1>
       {cart.length ? (
         <CartItemList>{renderCartList}</CartItemList>
       ) : (

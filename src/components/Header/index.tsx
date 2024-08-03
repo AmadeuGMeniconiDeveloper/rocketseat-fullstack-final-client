@@ -2,7 +2,6 @@ import { useContext, useEffect } from "react";
 
 import { AuthContext } from "@/contexts/AuthContext";
 
-import Button from "../Button";
 import CartButton from "../CartButton";
 import Logo from "../Logo";
 
@@ -11,6 +10,7 @@ import { Container } from "./styled";
 import { List, Receipt } from "@phosphor-icons/react";
 import { AppContext } from "@/contexts/AppContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../Button";
 
 interface ModalContextProps {
   openMenu: () => void;

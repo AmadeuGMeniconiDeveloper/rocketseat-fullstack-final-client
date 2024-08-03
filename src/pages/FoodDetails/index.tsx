@@ -5,7 +5,6 @@ import { api } from "@/config/api";
 
 import { AuthContext } from "@/contexts/AuthContext";
 
-import Button from "@/components/Button";
 import AmountStepper from "@/components/AmountStepper";
 import Tag from "@/components/Tag";
 
@@ -20,16 +19,25 @@ import {
 import { CaretLeft, Receipt } from "@phosphor-icons/react";
 import { Food } from "@/types/api";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Button from "@/components/Button";
+import { AppContext } from "@/contexts/AppContext";
 
 function FoodDetails() {
   const { isAdmin } = useContext(AuthContext);
+  const { addToCart } = useContext(AppContext);
 
   const [food, setFood] = useState<Food | null>();
-  const [quanity, setQuanity] = useState(1);
+  const [amount, setAmount] = useState(1);
 
   const navigate = useNavigate();
 
   const { id } = useParams();
+
+  const handleAddToCart = async () => {
+    if (id) {
+      addToCart(id, amount);
+    }
+  };
 
   useEffect(() => {
     const fetchFood = async () => {
@@ -76,8 +84,8 @@ function FoodDetails() {
           </Button>
         ) : (
           <>
-            <AmountStepper amount={quanity} setAmount={setQuanity} />
-            <Button variant="primary">
+            <AmountStepper amount={amount} setAmount={setAmount} />
+            <Button variant="primary" onClick={handleAddToCart}>
               <Receipt size={24} />
               Pedir - R${food.price}
             </Button>

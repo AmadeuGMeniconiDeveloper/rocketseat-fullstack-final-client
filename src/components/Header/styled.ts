@@ -9,7 +9,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 56px 28px 24px 28px;
+  padding-inline: 28px;
+  padding-top: 32px;
+  height: 104px;
   border: none;
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
 `;

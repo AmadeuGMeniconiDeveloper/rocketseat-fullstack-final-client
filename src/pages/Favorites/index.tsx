@@ -5,9 +5,9 @@ import { Container } from "./styled";
 import { Food } from "@/types/api";
 import FavoriteCard from "@/components/FavoriteCard";
 import { CaretLeft } from "@phosphor-icons/react";
-import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "@/contexts/AppContext";
+import Button from "@/components/Button";
 
 function Favorites() {
   const { foods, favorites, toggleFavorite } = useContext(AppContext);

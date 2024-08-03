@@ -6,7 +6,7 @@ import { AuthContext } from "@/contexts/AuthContext";
 import Button from "../Button";
 import InputText from "../InputText";
 
-import { ButtonList, Container, MessageBox, SearchList } from "./styled";
+import { Container, MessageBox, NavigationList, SearchList } from "./styled";
 
 import { MagnifyingGlass, X } from "@phosphor-icons/react";
 import { api } from "@/config/api";
@@ -54,7 +54,7 @@ function MenuModal({ closeMenu }: MenuModalProps) {
     setSearchInput(trimedValue);
   };
 
-  const renderProductList = productList.map(product => (
+  const renderFoundProducts = productList.map(product => (
     <li key={product.id}>
       <Button
         variant="ghost"
@@ -106,8 +106,8 @@ function MenuModal({ closeMenu }: MenuModalProps) {
           leftIcon={<MagnifyingGlass size={24} />}
         />
         {isInputFocused && searchInput ? (
-          productList.length > 0 ? (
-            <SearchList>{renderProductList}</SearchList>
+          productList.length ? (
+            <SearchList>{renderFoundProducts}</SearchList>
           ) : isLoading ? (
             <MessageBox>
               <p>Carregando...</p>
@@ -118,20 +118,14 @@ function MenuModal({ closeMenu }: MenuModalProps) {
             </MessageBox>
           )
         ) : (
-          <ButtonList>
+          <NavigationList>
             {isAdmin ? (
-              <Button variant="ghost" onClick={handleNew}>
-                Novo prato
-              </Button>
+              <a onClick={handleNew}>Novo prato</a>
             ) : (
-              <Button variant="ghost" onClick={hanldeFavorites}>
-                Favoritos
-              </Button>
+              <a onClick={hanldeFavorites}>Favoritos</a>
             )}
-            <Button variant="ghost" onClick={handleSignOut}>
-              Sair
-            </Button>
-          </ButtonList>
+            <a onClick={handleSignOut}>Sair</a>
+          </NavigationList>
         )}
       </div>
     </Container>
