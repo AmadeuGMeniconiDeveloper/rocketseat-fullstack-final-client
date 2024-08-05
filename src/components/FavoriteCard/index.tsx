@@ -1,4 +1,4 @@
-import { ComponentProps, Dispatch, SetStateAction, useContext } from "react";
+import { ComponentProps } from "react";
 import Button from "../Button";
 
 import { Container, ImageContainer } from "./styled";

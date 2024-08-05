@@ -16,7 +16,7 @@ const Container = styled.div`
     width: 100%;
     padding-inline: 28px;
     padding-top: 32px;
-    height: 104px;
+    height: 98px;
     border: none;
     background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
   }

@@ -1,13 +1,7 @@
 import { File, Trash, Upload } from "@phosphor-icons/react";
 import Button from "../Button";
 import { Container } from "./styled";
-import {
-  ChangeEvent,
-  ComponentProps,
-  MouseEvent,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, ComponentProps, MouseEvent, useRef } from "react";
 
 interface InputFileProps {
   selectedFile: File | null;

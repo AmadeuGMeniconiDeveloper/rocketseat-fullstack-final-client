@@ -1,4 +1,4 @@
-import { ComponentProps, MouseEvent, ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 import Button from "../Button";
 import { Container } from "./styled";
 

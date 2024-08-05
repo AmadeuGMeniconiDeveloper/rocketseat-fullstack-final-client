@@ -1,8 +1,8 @@
-import { ComponentProps, Dispatch, SetStateAction, useContext } from "react";
+import { ComponentProps } from "react";
 
 import { Container, ImageContainer, PriceContainer } from "./styled";
 
-import { CartItem, Food } from "@/types/api";
+import { CartItem } from "@/types/api";
 import { api } from "@/config/api";
 import ImagePlaceholder from "../ImagePlaceholder";
 import { Link } from "react-router-dom";
