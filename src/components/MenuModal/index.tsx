@@ -17,7 +17,7 @@ interface MenuModalProps {
   toogleTheme: () => void;
 }
 
-function MenuModal({ closeMenu, toogleTheme }: MenuModalProps) {
+function MenuModal({ closeMenu }: MenuModalProps) {
   const { signOut, isAdmin } = useContext(AuthContext);
 
   const [productList, setProductList] = useState<Food[]>([]);
