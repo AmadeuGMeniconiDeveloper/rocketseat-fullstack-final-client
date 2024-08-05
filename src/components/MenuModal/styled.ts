@@ -26,7 +26,7 @@ const Container = styled.div`
     position: relative;
     flex-direction: column;
     gap: 1rem;
-    padding: 36px 28px 12px 28px;
+    padding: 44px 24px 12px 24px;
     border: none;
 
     button {

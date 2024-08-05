@@ -12,11 +12,11 @@ import { AppContext } from "@/contexts/AppContext";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 
-interface ModalContextProps {
+interface HeaderProps {
   openMenu: () => void;
 }
 
-function Header({ openMenu }: ModalContextProps) {
+function Header({ openMenu }: HeaderProps) {
   const { isAdmin } = useContext(AuthContext);
   const { cart } = useContext(AppContext);
 

@@ -17,7 +17,7 @@ function App() {
     ThemeModes.dark
   );
 
-  const toogleTheme = () => {
+  const toggleTheme = () => {
     setTheme(theme.MODE === "light" ? ThemeModes.dark : ThemeModes.light);
   };
 
@@ -27,7 +27,7 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <AppProvider>
-            <AppRoutes />
+            <AppRoutes toggleTheme={toggleTheme} />
           </AppProvider>
         </AuthProvider>
       </BrowserRouter>

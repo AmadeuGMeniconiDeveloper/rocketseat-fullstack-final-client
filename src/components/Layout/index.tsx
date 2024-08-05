@@ -7,8 +7,11 @@ import MenuModal from "../MenuModal";
 
 import { Container } from "./styled";
 
-function Layout() {
-  // const { menuIsOpen } = useContext(ModalContext);
+interface LayoutProps {
+  toggleTheme: () => void;
+}
+
+function Layout({ toggleTheme }: LayoutProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const openMenu = () => {
@@ -21,7 +24,7 @@ function Layout() {
   return (
     <Container>
       {menuIsOpen ? (
-        <MenuModal closeMenu={closeMenu} />
+        <MenuModal closeMenu={closeMenu} toogleTheme={toggleTheme} />
       ) : (
         <>
           <Header openMenu={openMenu} />

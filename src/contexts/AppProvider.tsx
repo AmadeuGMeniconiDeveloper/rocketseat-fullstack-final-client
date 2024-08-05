@@ -84,6 +84,9 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     }
 
     const setStatesFromApiFetch = async () => {
+      if (!auth) {
+        return;
+      }
       await getFoods();
       await getFavorites();
       await getCart();

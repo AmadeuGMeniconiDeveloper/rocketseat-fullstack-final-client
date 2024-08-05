@@ -40,6 +40,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   useEffect(() => {
     if (auth) {
       api.defaults.headers.authorization = `Bearer ${auth.token}`;
+      navigate("/home");
     }
   }, [auth]);
 

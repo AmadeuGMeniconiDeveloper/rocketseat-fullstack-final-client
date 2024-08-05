@@ -13,15 +13,19 @@ import FoodEdit from "@/pages/FoodEdit";
 import Favorites from "@/pages/Favorites";
 import Cart from "@/pages/Cart";
 
-function AppRoutes() {
+interface AppRoutesProps {
+  toggleTheme: () => void;
+}
+
+function AppRoutes({ toggleTheme }: AppRoutesProps) {
   const { auth, isAdmin } = useContext(AuthContext);
   const location = useLocation();
 
   if (auth) {
     return (
       <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* //#DO: Implement customer routes: Favorites, Orders, Cart & Payment */}
+        <Route path="/" element={<Layout toggleTheme={toggleTheme} />}>
+          {/* //#DO: Implement customer routes: Orders & Payment */}
           <Route path="home" element={<Home />} />
           <Route path="details/:id" element={<FoodDetails />} />
           <Route path="favorites" element={<Favorites />} />

@@ -10,8 +10,8 @@ const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   padding-inline: 28px;
-  padding-top: 32px;
-  height: 104px;
+  padding-top: 50px;
+  padding-bottom: 18px;
   border: none;
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
 `;
