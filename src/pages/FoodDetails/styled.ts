@@ -33,7 +33,7 @@ const TagContainer = styled.div`
     padding: 8px 16px;
     font-size: 12px;
     border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
-    background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_600};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_400};
   }
 `;
 

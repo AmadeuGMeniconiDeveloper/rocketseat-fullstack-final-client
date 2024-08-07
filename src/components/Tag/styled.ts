@@ -5,7 +5,7 @@ export const Container = styled.span`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.COLORS.FOREGROUNG.FG_600};
+  background-color: ${({ theme }) => theme.COLORS.FOREGROUNG.FG_300};
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};

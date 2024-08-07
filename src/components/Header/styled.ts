@@ -13,7 +13,7 @@ const Container = styled.div`
   padding-top: 50px;
   padding-bottom: 18px;
   border: none;
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
 `;
 
 export { Container };

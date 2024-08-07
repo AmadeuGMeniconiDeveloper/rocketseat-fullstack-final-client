@@ -8,7 +8,7 @@ const Container = styled.div`
   align-items: center;
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_SOFT};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
   font-size: 16px;
@@ -24,7 +24,7 @@ const AddTag = styled.span`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND.BG_900};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_SOFT};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};

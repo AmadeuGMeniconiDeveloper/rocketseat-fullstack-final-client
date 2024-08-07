@@ -6,7 +6,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   border: none;
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_400};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_200};
 
   & > header {
     display: flex;
@@ -18,7 +18,7 @@ const Container = styled.div`
     padding-top: 32px;
     height: 98px;
     border: none;
-    background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   }
 
   & > div {
@@ -33,7 +33,6 @@ const Container = styled.div`
       align-self: self-start;
       font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XLARGE};
       font-weight: 700;
-      color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
     }
   }
 `;
@@ -47,7 +46,7 @@ const SearchList = styled.ul`
   left: 0rem;
   margin-inline: 2.8rem;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   list-style: none;
 
   li {
@@ -66,7 +65,7 @@ const SearchList = styled.ul`
     }
 
     &:hover {
-      background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_900};
+      background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
     }
 
     button {
@@ -118,7 +117,7 @@ const MessageBox = styled.div`
   left: 0rem;
   margin-inline: 2.8rem;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   list-style: none;
 
   padding-inline: 2rem;

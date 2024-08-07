@@ -17,7 +17,7 @@ interface MenuModalProps {
   toogleTheme: () => void;
 }
 
-function MenuModal({ closeMenu }: MenuModalProps) {
+function MenuModal({ closeMenu, toogleTheme }: MenuModalProps) {
   const { signOut, isAdmin } = useContext(AuthContext);
 
   const [productList, setProductList] = useState<Food[]>([]);
@@ -120,9 +120,9 @@ function MenuModal({ closeMenu }: MenuModalProps) {
           )
         ) : (
           <NavigationList>
-            {/* <Button variant="secondary" onClick={toogleTheme}>
+            <Button variant="secondary" onClick={toogleTheme}>
               Tema
-            </Button> */}
+            </Button>
             {isAdmin ? (
               <a onClick={handleNew}>Novo prato</a>
             ) : (

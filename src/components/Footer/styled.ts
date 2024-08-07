@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 28px;
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
 
   p {
     text-align: right;

@@ -15,7 +15,7 @@ export default createGlobalStyle`
 	}
 	
 	body {
-		background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_400};
+		background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_200};
 		font-size: 1.6rem;
 	}
 `;

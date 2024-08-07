@@ -4,7 +4,7 @@ const Container = styled.select`
   display: flex;
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_800};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_600};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_SOFT};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
   font-size: 16px;

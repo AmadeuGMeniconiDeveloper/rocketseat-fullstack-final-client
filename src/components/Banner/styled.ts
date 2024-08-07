@@ -12,8 +12,8 @@ const Container = styled.div`
   margin-bottom: 24px;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: linear-gradient(
-    ${({ theme }) => theme.COLORS.BACKGROUND.BG_700},
-    ${({ theme }) => theme.COLORS.BACKGROUND.BG_500}
+    ${({ theme }) => theme.COLORS.BACKGROUND.BG_500},
+    ${({ theme }) => theme.COLORS.BACKGROUND.BG_200}
   );
 `;
 

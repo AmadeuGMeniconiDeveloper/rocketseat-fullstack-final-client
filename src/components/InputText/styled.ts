@@ -9,7 +9,7 @@ const Container = styled.div`
   width: 100%;
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
-  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_SOFT};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
   font-size: 16px;

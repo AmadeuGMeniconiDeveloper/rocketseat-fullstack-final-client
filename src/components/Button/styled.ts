@@ -10,6 +10,7 @@ const PrimaryButton = styled.button`
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: ${({ theme }) => theme.COLORS.PRIMARY};
+  color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   font-size: 1.4rem;
   font-weight: 500;
   line-height: "auto";
@@ -39,6 +40,8 @@ const SecondaryButton = styled.button`
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: ${({ theme }) => theme.COLORS.SECONDARY};
+  color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
+
   font-size: 1.4rem;
   font-weight: 500;
   line-height: "auto";

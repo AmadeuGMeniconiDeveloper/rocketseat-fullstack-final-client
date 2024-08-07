@@ -49,7 +49,7 @@ function AppRoutes({ toggleTheme }: AppRoutesProps) {
   } else {
     return (
       <Routes>
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signin" element={<SignIn toggleTheme={toggleTheme} />} />
         <Route path="/signup" element={<SignUp />} />
 
         <Route
