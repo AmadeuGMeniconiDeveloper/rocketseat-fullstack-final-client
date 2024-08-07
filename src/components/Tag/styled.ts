@@ -9,7 +9,6 @@ export const Container = styled.span`
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
-  font-size: 14px;
   gap: 1rem;
   font-weight: 500;
   height: 3rem;
@@ -20,6 +19,7 @@ export const Container = styled.span`
 
   p {
     font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
+    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.MEDIUM};
     text-align: center;
     font-weight: 400;
   }

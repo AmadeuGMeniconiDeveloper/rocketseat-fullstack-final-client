@@ -18,7 +18,7 @@ const Container = styled.div`
   }
 
   a {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.SMALL};
     font-weight: 500;
     text-decoration: none;
     align-self: center;

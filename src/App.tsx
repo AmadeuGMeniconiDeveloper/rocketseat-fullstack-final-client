@@ -22,16 +22,16 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <BrowserRouter>
-        <AuthProvider>
-          <AppProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppProvider>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
             <AppRoutes toggleTheme={toggleTheme} />
-          </AppProvider>
-        </AuthProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+          </ThemeProvider>
+        </AppProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

@@ -25,24 +25,21 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       password,
     });
 
-    setAuth({ user: data.user, token: data.token });
+    setAuth({ user: data.user });
     navigate("/home");
   };
 
   const signOut = async () => {
-    const { data } = await api.post("/sessions/signout");
+    await api.post("/sessions/signout");
 
-    api.defaults.headers.authorization = data;
-
-    setAuth(data);
+    setAuth(null);
   };
 
   useEffect(() => {
     if (auth) {
-      api.defaults.headers.authorization = `Bearer ${auth.token}`;
       navigate("/home");
     }
-  }, [auth]);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ auth, isAdmin, signIn, signOut }}>

@@ -72,7 +72,7 @@ function FoodCard(food: Food) {
         {food.name} <CaretRight size={14} />
       </Button>
 
-      {food.description && <p>{food.description}</p>}
+      <p>{food.description}</p>
       <h3>${food.price}</h3>
 
       {!isAdmin && (

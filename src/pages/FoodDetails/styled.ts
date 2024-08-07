@@ -32,7 +32,7 @@ const TagContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 8px 16px;
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XSMALL};
     border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
     background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_400};
   }

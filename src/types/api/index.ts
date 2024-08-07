@@ -26,7 +26,6 @@ interface User {
 
 interface Auth {
   user: User;
-  token: string;
 }
 
 export type { Food, User, Auth, CartItem };

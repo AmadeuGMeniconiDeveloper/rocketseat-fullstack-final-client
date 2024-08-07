@@ -8,7 +8,6 @@ const Container = styled.div`
   align-items: center;
   gap: 1.2rem;
   width: 21rem;
-  height: 32rem;
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   padding: 2.4rem;
@@ -19,6 +18,8 @@ const Container = styled.div`
     overflow: hidden;
     white-space: nowrap;
     width: 100%;
+    height: 1.5rem;
+    line-height: "auto";
   }
 
   & > h1 {

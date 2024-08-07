@@ -11,11 +11,7 @@ import { Container } from "./styled";
 
 import { Link } from "react-router-dom";
 
-interface SignInProps {
-  toggleTheme: () => void;
-}
-
-function SignIn({ toggleTheme }: SignInProps) {
+function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,9 +24,6 @@ function SignIn({ toggleTheme }: SignInProps) {
 
   return (
     <Container>
-      <Button variant="ghost" onClick={toggleTheme}>
-        Tema
-      </Button>
       <Logo variant="user" />
       <form onSubmit={handleSignIn}>
         <Label>

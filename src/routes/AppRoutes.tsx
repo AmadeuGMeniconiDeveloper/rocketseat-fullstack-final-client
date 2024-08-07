@@ -49,9 +49,10 @@ function AppRoutes({ toggleTheme }: AppRoutesProps) {
   } else {
     return (
       <Routes>
-        <Route path="/signin" element={<SignIn toggleTheme={toggleTheme} />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
 
+        {/* //#DO: Implement 404 page */}
         <Route
           path="*"
           element={<Navigate to="/signin" state={{ from: location }} replace />}

@@ -90,10 +90,6 @@ export const AppProvider = ({ children }: AppProviderProps) => {
       await getFoods();
       await getFavorites();
       await getCart();
-
-      console.log("Foods: ", foods);
-      console.log("Favorites: ", favorites);
-      console.log("Cart: ", cart);
     };
 
     setStatesFromApiFetch();
