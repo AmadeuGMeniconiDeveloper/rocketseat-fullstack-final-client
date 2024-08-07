@@ -14,6 +14,13 @@ const Container = styled.div`
   padding: 2.4rem;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 
+  & > p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
   & > h1 {
     font-size: 1.4rem;
   }
