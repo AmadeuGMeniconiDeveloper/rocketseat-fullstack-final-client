@@ -3,7 +3,7 @@ import commons from "./themes/commons";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    MODE: string;
+    MODE: "light" | "dark";
     COLORS: {
       PRIMARY: string;
       SECONDARY: string;

@@ -8,9 +8,10 @@ import InputText from "../InputText";
 
 import { Container, MessageBox, NavigationList, SearchList } from "./styled";
 
-import { MagnifyingGlass, X } from "@phosphor-icons/react";
+import { MagnifyingGlass, X, Sun, Moon } from "@phosphor-icons/react";
 import { api } from "@/config/api";
 import { Food } from "@/types/api";
+import { useTheme } from "styled-components";
 
 interface MenuModalProps {
   closeMenu: () => void;
@@ -19,11 +20,13 @@ interface MenuModalProps {
 
 function MenuModal({ closeMenu, toogleTheme }: MenuModalProps) {
   const { signOut, isAdmin } = useContext(AuthContext);
+  const { MODE } = useTheme();
 
   const [productList, setProductList] = useState<Food[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [isInputFocused, setIsInputFocused] = useState(false);
+  const [toggleSwitch, setToggleSwitch] = useState(MODE);
 
   const navigate = useNavigate();
 
@@ -47,6 +50,16 @@ function MenuModal({ closeMenu, toogleTheme }: MenuModalProps) {
   const handleNew = () => {
     closeMenu();
     navigate("/new");
+  };
+
+  const handleToggleTheme = () => {
+    toogleTheme();
+
+    if (toggleSwitch === "light") {
+      setToggleSwitch("dark");
+    } else {
+      setToggleSwitch("light");
+    }
   };
 
   const handleSearchbarOnChange = (value: string) => {
@@ -96,6 +109,9 @@ function MenuModal({ closeMenu, toogleTheme }: MenuModalProps) {
           <X size={24} />
           Menu
         </Button>
+        <Button variant="ghost" onClick={handleToggleTheme}>
+          {toggleSwitch === "light" ? <Moon size={24} /> : <Sun size={24} />}
+        </Button>
       </header>
       <div>
         <InputText
@@ -120,9 +136,6 @@ function MenuModal({ closeMenu, toogleTheme }: MenuModalProps) {
           )
         ) : (
           <NavigationList>
-            <Button variant="secondary" onClick={toogleTheme}>
-              Tema
-            </Button>
             {isAdmin ? (
               <a onClick={handleNew}>Novo prato</a>
             ) : (
