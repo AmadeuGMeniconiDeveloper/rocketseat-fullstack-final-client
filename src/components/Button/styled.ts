@@ -7,11 +7,12 @@ const PrimaryButton = styled.button`
   gap: 0.6rem;
   width: 100%;
   height: 4rem;
+  padding-inline: 1rem;
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: ${({ theme }) => theme.COLORS.PRIMARY};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
-  font-size: 1.4rem;
+  font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.MEDIUM};
   font-weight: 500;
   line-height: "auto";
 
@@ -37,12 +38,13 @@ const SecondaryButton = styled.button`
   gap: 0.8rem;
   width: 100%;
   height: 4rem;
+  padding-inline: 1rem;
+
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: ${({ theme }) => theme.COLORS.SECONDARY};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
-
-  font-size: 1.4rem;
+  font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.MEDIUM};
   font-weight: 500;
   line-height: "auto";
 
@@ -69,7 +71,7 @@ const GhostButton = styled.button`
   /* padding: 0.6rem; */
   border: none;
   background: transparent;
-  font-size: 1.4rem;
+  font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.MEDIUM};
   font-weight: 500;
   line-height: "auto";
 

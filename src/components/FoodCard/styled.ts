@@ -7,8 +7,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1.2rem;
-  width: 210px;
-  height: 295px;
+  width: 21rem;
+  height: 32rem;
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   padding: 2.4rem;

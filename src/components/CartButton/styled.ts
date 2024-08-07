@@ -10,6 +10,7 @@ const PrimaryButton = styled.button`
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: ${({ theme }) => theme.COLORS.PRIMARY};
+  color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   font-size: 1.4rem;
   font-weight: 500;
   line-height: "auto";
@@ -26,6 +27,10 @@ const PrimaryButton = styled.button`
   &:disabled {
     filter: ${({ theme }) => theme.COMMONS.FILTERS.DESATURATE};
     cursor: default;
+  }
+
+  p {
+    color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   }
 `;
 
@@ -39,6 +44,7 @@ const SecondaryButton = styled.button`
   border: none;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.S};
   background: ${({ theme }) => theme.COLORS.SECONDARY};
+
   font-size: 1.4rem;
   font-weight: 500;
   line-height: "auto";
@@ -55,6 +61,10 @@ const SecondaryButton = styled.button`
   &:disabled {
     filter: ${({ theme }) => theme.COMMONS.FILTERS.DESATURATE};
     cursor: default;
+  }
+
+  p {
+    color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   }
 `;
 
@@ -88,6 +98,7 @@ const GhostButton = styled.button`
       position: absolute;
       font-size: 1rem;
       margin-top: 1px;
+      color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
     }
   }
 

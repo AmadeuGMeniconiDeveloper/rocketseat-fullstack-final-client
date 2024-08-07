@@ -31,7 +31,7 @@ const Container = styled.div`
 
     button {
       align-self: self-start;
-      font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XLARGE};
+      font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.MEDIUM};
       font-weight: 700;
     }
   }
@@ -85,7 +85,7 @@ const NavigationList = styled.nav`
   margin-top: 3rem;
 
   a {
-    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XXLARGE};
+    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.LARGE};
     font-weight: 300;
     color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
 

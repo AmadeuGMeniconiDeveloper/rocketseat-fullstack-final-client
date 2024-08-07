@@ -6,6 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
   padding: 44px;
 
   & > button {

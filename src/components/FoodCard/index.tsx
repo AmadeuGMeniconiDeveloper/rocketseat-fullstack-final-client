@@ -79,7 +79,7 @@ function FoodCard(food: Food) {
         <>
           <AmountStepper amount={amount} setAmount={setAmount} />
           <Button variant="primary" onClick={handleAddToCart}>
-            inclur
+            Inclur
           </Button>
         </>
       )}

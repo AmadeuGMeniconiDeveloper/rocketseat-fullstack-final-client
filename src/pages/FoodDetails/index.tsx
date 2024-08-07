@@ -86,8 +86,8 @@ function FoodDetails() {
           <>
             <AmountStepper amount={amount} setAmount={setAmount} />
             <Button variant="primary" onClick={handleAddToCart}>
-              <Receipt size={24} />
-              Pedir - R${food.price}
+              <Receipt size={24} color="#fff" />
+              R${food.price}
             </Button>
           </>
         )}
