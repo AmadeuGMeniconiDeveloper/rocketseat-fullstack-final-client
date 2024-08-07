@@ -28,7 +28,7 @@ const light: DefaultTheme = {
       BG_200: "#FFFFFF",
       BG_300: "#e6e8e6",
       BG_400: "#e6e8e6",
-      BG_500: "#e6e8e6",
+      BG_500: "#f6f8f6",
       BG_600: "#e6e8e6",
       BG_700: "#e6e8e6",
     },

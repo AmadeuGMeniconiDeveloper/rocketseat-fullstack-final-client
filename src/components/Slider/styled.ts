@@ -4,6 +4,7 @@ const Container = styled.div`
   width: 100%;
   overflow: hidden;
   cursor: grab;
+  padding-block: 1rem;
 
   & ul {
     display: flex;

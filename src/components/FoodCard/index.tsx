@@ -37,7 +37,7 @@ function FoodCard(food: Food) {
     await toggleFavorite(food.id);
     setIsFavorited(!isFavorited);
   };
-
+  console.log(api.defaults.baseURL);
   return (
     <Container>
       {isAdmin ? (

@@ -5,7 +5,7 @@ export const Container = styled.span`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.COLORS.FOREGROUNG.FG_300};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND.BG_700};
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   color: ${({ theme }) => theme.COLORS.TEXT.TEXT_CONTRAST};
   font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};
@@ -16,6 +16,7 @@ export const Container = styled.span`
   line-height: 0%;
   border: none;
   padding-inline: 12px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 
   p {
     font-family: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.FAMILLY.ROBOTO};

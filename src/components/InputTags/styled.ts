@@ -32,7 +32,7 @@ const AddTag = styled.span`
   font-weight: 500;
   height: 3rem;
   line-height: 0%;
-  border: white 1px dashed;
+  border: ${({ theme }) => theme.COLORS.TEXT.TEXT_SOFT} 1px dashed;
   padding-inline: 12px;
 
   p {

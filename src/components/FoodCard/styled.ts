@@ -12,6 +12,7 @@ const Container = styled.div`
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   padding: 2.4rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 
   & > h1 {
     font-size: 1.4rem;
