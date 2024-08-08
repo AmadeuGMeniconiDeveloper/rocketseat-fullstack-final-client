@@ -1,30 +1,40 @@
 import { ButtonVariants } from "@/types/style/variants";
 
 import { GhostButton, PrimaryButton, SecondaryButton } from "./styled";
+import { useContext, useEffect } from "react";
+import { AppContext } from "@/contexts/AppContext";
 
 interface CartButtonProps {
   variant?: ButtonVariants;
-  numberOfItems: number;
 }
 
 function CartButton({
   variant,
-  numberOfItems,
   ...props
 }: CartButtonProps & React.ComponentProps<"button">) {
+  const { cart, getCart } = useContext(AppContext);
+
+  useEffect(() => {
+    const handleGetCart = async () => {
+      await getCart();
+    };
+
+    handleGetCart();
+  }, []);
+
   switch (variant) {
     case "primary":
       return (
         <PrimaryButton {...props}>
           {props.children}
-          <p>({numberOfItems})</p>
+          <p>({cart.length})</p>
         </PrimaryButton>
       );
     case "secondary":
       return (
         <SecondaryButton {...props}>
           {props.children}
-          <p>({numberOfItems})</p>
+          <p>({cart.length})</p>
         </SecondaryButton>
       );
     case "ghost":
@@ -32,7 +42,7 @@ function CartButton({
         <GhostButton {...props}>
           {props.children}
           <div>
-            <p>{numberOfItems}</p>
+            <p>{cart.length}</p>
           </div>
         </GhostButton>
       );
@@ -40,7 +50,7 @@ function CartButton({
       return (
         <PrimaryButton {...props}>
           {props.children}
-          <p>({numberOfItems})</p>
+          <p>({cart.length})</p>
         </PrimaryButton>
       );
   }

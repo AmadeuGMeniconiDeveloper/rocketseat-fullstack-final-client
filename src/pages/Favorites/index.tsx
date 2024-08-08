@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { Container } from "./styled";
 
@@ -10,7 +10,8 @@ import { AppContext } from "@/contexts/AppContext";
 import Button from "@/components/Button";
 
 function Favorites() {
-  const { foods, favorites, toggleFavorite } = useContext(AppContext);
+  const { foods, favorites, toggleFavorite, getFavorites } =
+    useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -29,6 +30,14 @@ function Favorites() {
       );
     }
   });
+
+  useEffect(() => {
+    const handleGetFavorites = async () => {
+      await getFavorites();
+    };
+
+    handleGetFavorites();
+  }, []);
 
   return (
     <Container>

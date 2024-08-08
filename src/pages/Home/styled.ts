@@ -8,7 +8,7 @@ const Container = styled.div`
   gap: 24px;
 
   & h2 {
-    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.MEDIUM};
+    font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XLARGE};
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.TEXT.TEXT_DEFAULT};
   }

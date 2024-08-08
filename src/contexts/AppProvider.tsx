@@ -1,12 +1,10 @@
-import { ReactNode, useContext, useEffect } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 
 import { AppContext } from "./AppContext";
 
 import { api } from "@/config/api";
 import { CartItem, Food } from "@/types/api";
 import { AuthContext } from "./AuthContext";
-import useLocatStorage from "@/hooks/useLocalStorage";
-import { useNavigate } from "react-router-dom";
 
 interface AppProviderProps {
   children: ReactNode;
@@ -15,18 +13,19 @@ interface AppProviderProps {
 export const AppProvider = ({ children }: AppProviderProps) => {
   const { auth } = useContext(AuthContext);
 
-  const [foods, setFoods] = useLocatStorage<Food[]>("foods", []);
-  const [favorites, setFavorites] = useLocatStorage<string[]>("favorites", []);
-  const [cart, setCart] = useLocatStorage<CartItem[]>("cart", []);
-
-  const navigate = useNavigate();
+  const [allFoods, setAllFoods] = useState<Food[]>([]);
+  const [meals, setMeals] = useState<Food[]>([]);
+  const [desserts, setDesserts] = useState<Food[]>([]);
+  const [drinks, setDrinks] = useState<Food[]>([]);
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   const getCart = async () => {
     const cartResponse = await api.get("/cartItems/all");
 
     const populatedCart = cartResponse.data.map(
       (cartItem: { productId: string; quantity: number }) => {
-        const product = foods.find(food => food.id === cartItem.productId);
+        const product = allFoods.find(food => food.id === cartItem.productId);
 
         if (!product) {
           return;
@@ -68,7 +67,10 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   const getFoods = async () => {
     const foodsResponse = await api.get("/products/all");
 
-    setFoods(foodsResponse.data);
+    setAllFoods(foodsResponse.data.all);
+    setMeals(foodsResponse.data.meals);
+    setDesserts(foodsResponse.data.desserts);
+    setDrinks(foodsResponse.data.drinks);
   };
 
   const toggleFavorite = async (productId: string) => {
@@ -79,26 +81,19 @@ export const AppProvider = ({ children }: AppProviderProps) => {
 
   useEffect(() => {
     if (!auth) {
-      setFoods([]);
+      setAllFoods([]);
       setCart([]);
+      setFavorites([]);
     }
-
-    const setStatesFromApiFetch = async () => {
-      if (!auth) {
-        return;
-      }
-      await getFoods();
-      await getFavorites();
-      await getCart();
-    };
-
-    setStatesFromApiFetch();
-  }, [auth, navigate]);
+  }, [auth]);
 
   return (
     <AppContext.Provider
       value={{
-        foods,
+        foods: allFoods,
+        meals,
+        desserts,
+        drinks,
         favorites,
         cart,
         getFoods,

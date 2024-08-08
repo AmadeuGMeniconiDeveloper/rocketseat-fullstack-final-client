@@ -3,6 +3,9 @@ import { createContext } from "react";
 
 type AppContextType = {
   foods: Food[];
+  meals: Food[];
+  desserts: Food[];
+  drinks: Food[];
   favorites: string[];
   getFoods: () => Promise<void>;
   getFavorites: () => Promise<void>;

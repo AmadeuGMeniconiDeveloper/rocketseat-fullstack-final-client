@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { CartItemList, Container } from "./styled";
 
@@ -10,7 +10,7 @@ import CartItemCard from "@/components/CardItemCard";
 import Button from "@/components/Button";
 
 function Cart() {
-  const { cart, removeFromCart } = useContext(AppContext);
+  const { cart, removeFromCart, getCart } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -27,6 +27,14 @@ function Cart() {
       />
     );
   });
+
+  useEffect(() => {
+    const handleGetCart = async () => {
+      await getCart();
+    };
+
+    handleGetCart();
+  }, []);
 
   return (
     <Container>
