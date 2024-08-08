@@ -7,6 +7,8 @@ const Container = styled.div`
   padding-inline: 24px;
   padding-block: 44px 24px;
   gap: 24px;
+  max-width: 768px;
+  margin-inline: auto;
 
   & > button {
     align-self: start;

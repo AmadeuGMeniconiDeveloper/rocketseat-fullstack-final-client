@@ -26,6 +26,8 @@ const TagContainer = styled.div`
   gap: 2.4rem;
   width: 100%;
   margin-bottom: 24px;
+  max-width: 768px;
+  margin-inline: auto;
 
   & span {
     display: flex;

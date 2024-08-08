@@ -44,7 +44,7 @@ const SearchList = styled.ul`
   top: 10rem;
   right: 0rem;
   left: 0rem;
-  margin-inline: 2.8rem;
+  margin-inline: 2.3rem;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   list-style: none;
@@ -115,7 +115,7 @@ const MessageBox = styled.div`
   top: 10rem;
   right: 0rem;
   left: 0rem;
-  margin-inline: 2.8rem;
+  margin-inline: 2.3rem;
   border-radius: ${({ theme }) => theme.COMMONS.BORDER_RADIUS.M};
   background: ${({ theme }) => theme.COLORS.BACKGROUND.BG_500};
   list-style: none;

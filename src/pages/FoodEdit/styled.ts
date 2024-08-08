@@ -5,6 +5,8 @@ const Container = styled.div`
   flex-direction: column;
   padding: 24px;
   gap: 24px;
+  max-width: 768px;
+  margin-inline: auto;
 
   & > h1 {
     font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XXXLARGE};

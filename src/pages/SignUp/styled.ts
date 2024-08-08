@@ -6,6 +6,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 768px;
+  margin-inline: auto;
 
   form {
     width: 100%;

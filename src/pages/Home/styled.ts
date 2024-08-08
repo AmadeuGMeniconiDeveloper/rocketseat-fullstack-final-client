@@ -6,6 +6,8 @@ const Container = styled.div`
   padding-inline: 24px;
   padding-block: 44px;
   gap: 24px;
+  max-width: 768px;
+  margin-inline: auto;
 
   & h2 {
     font-size: ${({ theme }) => theme.COMMONS.TYPOGRAPHY.FONT.SIZE.XLARGE};
