@@ -4,7 +4,7 @@ This is a simple React project CRUD application as an exercise.
 
 As a challenge I chose to use Typescript as the language of choice.
 
-To run localy simply clone this repo and run `yarn` then `yarn dev` on terminal to start locally. Make sure Breadcrumbsrocketseat-fullstack-final-api is up annd running correctly first.
+To run localy simply clone this repo and run `yarn` then `yarn dev` on terminal to start locally. Make sure rocketseat-fullstack-final-api is up annd running correctly first.
 
 # Deploy
 
