@@ -12,4 +12,4 @@ This project is hosted on netlify.com. The domain is at `https://foodexplorer-fi
 
 # Issues
 
-- Couldn't figure out how to implement responsive design :(.
+- Couldn't figure out how to implement responsive design (It is a mobile first front-end application)
